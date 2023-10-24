@@ -13,3 +13,5 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
 
+-- File Explorer
+vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>") -- toggle file explorer

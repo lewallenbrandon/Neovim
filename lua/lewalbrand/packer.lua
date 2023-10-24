@@ -22,6 +22,12 @@ return require('packer').startup(function(use)
 	  end
   })
   use('theprimeagen/harpoon')
+  use {
+	  'nvim-tree/nvim-tree.lua',
+	  requires = {
+		  'nvim-tree/nvim-web-devicons', -- optional
+	  },
+  }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('github/copilot.vim')
