@@ -15,3 +15,46 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
 
 -- File Explorer
 vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>") -- toggle file explorer
+
+-- Shortcuts to Memorize
+--[[
+
+  -- Movement 
+  [[ | begin this or next func 
+  <C-e> | move screen down one line.
+  <C-y> | move screen up one line
+  <C-b> | move screen up a page
+  <C-f> | move screen down a page
+  <C-d> | move cursor and screen down 1/2 page
+  <C-u> | move cursor and screeup up 1/2 page
+
+  -- Diff 
+  [c and ]c | prev and nex diff
+
+  -- Buffer
+  bp and bn | prev and next buffer
+
+  -- Marks
+  `` | Previous location before jump
+  `. | go to last change
+  `" | last edit
+
+  -- Insert Mode Stuff
+  <C-w> | Delete Word b4 cursor
+  <C-u> | Delete Line b4 cursor
+
+  -- Command Line Mode
+  :g/foo/command | apply a command on all matching lines
+
+  -- Window Management
+  <C-w> +-<> | Increase/Decrease window/height width
+
+  -- Registers
+  "_ | Blackhole register
+  "+ | System Clipboard
+
+  -- Startup
+  nvim <filename> +123 | goto line 123
+
+
+]] --
