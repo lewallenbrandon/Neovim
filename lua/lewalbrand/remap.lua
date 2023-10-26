@@ -6,6 +6,11 @@ vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=") -- equalize window sizes
 vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+vim.keymap.set("n", "<leader><Tab>", "<C-w>w") -- switch to next window
+vim.keymap.set("n", "<leader>h", "<C-w>h") -- move to left window
+vim.keymap.set("n", "<leader>j", "<C-w>j") -- move to bottom window
+vim.keymap.set("n", "<leader>k", "<C-w>k") -- move to top window
+vim.keymap.set("n", "<leader>l", "<C-w>l") -- move to right window
 
 -- Tab Management 
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- new tab
@@ -15,6 +20,10 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
 
 -- File Explorer
 vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>") -- toggle file explorer
+
+-- Visual Mode
+vim.keymap.set("v", "<", "<gv") -- indent left
+vim.keymap.set("v", ">", ">gv") -- indent right
 
 -- Shortcuts to Memorize
 --[[
