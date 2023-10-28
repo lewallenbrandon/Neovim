@@ -25,8 +25,7 @@ vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>") -- toggle file explorer
 vim.keymap.set("v", "<", "<gv") -- indent left
 vim.keymap.set("v", ">", ">gv") -- indent right
 
--- Terminal 
-vim.api.nvim_create_user_command("Pwsh", ":term pwsh<CR>", {})
+
 
 -- Shortcuts to Memorize
 --[[
