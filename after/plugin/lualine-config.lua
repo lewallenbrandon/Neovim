@@ -8,6 +8,16 @@ local function get_venv()
   end
 end
 
+-- only show the clock when fullscreen (= it covers the menubar clock)
+local function clock()
+	if vim.opt.columns:get() < 110 or vim.opt.lines:get() < 25 then return "" end
+
+	local time = tostring(os.date("%I:%M %p"))
+	if os.time() % 2 == 1 then time = time:gsub(":", " ") end -- make the `:` blink
+	return time
+end
+
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -33,7 +43,7 @@ require('lualine').setup {
     lualine_c = {'filename'},
     lualine_x = {{get_venv}, 'fileformat', 'filetype'},
     lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_z = {'location', {clock}}
   },
   inactive_sections = {
     lualine_a = {},
