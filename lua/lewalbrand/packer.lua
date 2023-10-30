@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	})
 
+	-- colorscheme
+	--[[
 	use({
 		'projekt0n/github-nvim-theme',
 		config = function()
@@ -38,13 +40,47 @@ return require('packer').startup(function(use)
 			vim.cmd('colorscheme github_dark_dimmed')
 		end
 	})
+	--]]
+	--[[
+	use({"catppuccin/nvim", as = "catppuccin", 
+	config = function()
+		vim.cmd('colorscheme catppuccin-mocha')
+		vim.cmd('highlight Normal guibg=none ctermbg=none')
+		vim.cmd('highlight NonText guibg=none ctermbg=none')
+	end
+	})
+	--]]
 
-	use {
+
+	
+	--[[
+	use({'navarasu/onedark.nvim', 
+	priority = 1000,
+	config = function()
+		require('onedark').setup {
+			style = 'cool'
+		}
+		require('onedark').load()
+		vim.cmd('colorscheme onedark')
+	end
+	})
+	--]]
+	
+	use({
+		"kyazdani42/blue-moon",
+		config = function()
+			vim.opt.termguicolors = true
+			vim.cmd "colorscheme blue-moon"
+		end
+	})
+
+
+	use({
 		'nvim-tree/nvim-tree.lua',
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional
 		},
-	}
+	})
 
 	use({
 		'nvim-lualine/lualine.nvim',
