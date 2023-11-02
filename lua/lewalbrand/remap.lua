@@ -2,28 +2,28 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Window management
-vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=") -- equalize window sizes
-vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
-vim.keymap.set("n", "<leader><Tab>", "<C-w>w") -- switch to next window
-vim.keymap.set("n", "<leader>h", "<C-w>h") -- move to left window
-vim.keymap.set("n", "<leader>j", "<C-w>j") -- move to bottom window
-vim.keymap.set("n", "<leader>k", "<C-w>k") -- move to top window
-vim.keymap.set("n", "<leader>l", "<C-w>l") -- move to right window
+vim.keymap.set("n", "<leader>sv", "<C-w>v", {desc="Split Window Vertically"}) -- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s", {desc="Split Window Horizontally"}) -- Split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=", {desc="Equalize Window Sizes"}) -- Equalize window sizes
+vim.keymap.set("n", "<leader>sx", ":close<CR>", {desc="Close Current Split Window"}) -- Close current split window
+vim.keymap.set("n", "<leader><Tab>", "<C-w>w", {desc="Switch to Next Window"}) -- Switch to next window
+vim.keymap.set("n", "<leader>h", "<C-w>h", {desc="Move to Left Window"}) -- Move to left window
+vim.keymap.set("n", "<leader>j", "<C-w>j", {desc="Move to Bottom Window"}) -- Move to bottom window
+vim.keymap.set("n", "<leader>k", "<C-w>k", {desc="Move to Top Window"}) -- Move to top window
+vim.keymap.set("n", "<leader>l", "<C-w>l", {desc="Move to Right Window"}) -- Move to right window
 
 -- Tab Management 
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>", {desc="New Tab"}) -- New tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", {desc="Close Tab"}) -- Close tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>", {desc="Next Tab"}) -- Next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>", {desc="Previous Tab"}) -- Previous tab
 
 -- File Explorer
-vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>") -- toggle file explorer
+vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>", {desc="Toggle File Explorer"}) -- Toggle file explorer
 
 -- Visual Mode
-vim.keymap.set("v", "<", "<gv") -- indent left
-vim.keymap.set("v", ">", ">gv") -- indent right
+vim.keymap.set("v", "<", "<gv", {desc="Indent Left"}) -- Indent left
+vim.keymap.set("v", ">", ">gv", {desc="Indent Right"}) -- Indent right
 
 
 
