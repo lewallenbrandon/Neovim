@@ -13,6 +13,9 @@ return require('packer').startup(function(use)
 	use('mfussenegger/nvim-dap-python')
 	use("christoomey/vim-tmux-navigator")
 	use('theprimeagen/harpoon')
+	use('chentoast/marks.nvim')
+	use('gennaro-tedesco/nvim-peekup')
+	use('tpope/vim-fugitive')
 	-- Plugins requiring options
 	--
 	use({
@@ -23,18 +26,20 @@ return require('packer').startup(function(use)
 	})
 
 	-- Lua
-	use {
+	use ({
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 10
-			require("which-key").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			}
-		end
-	}
+
+		end,
+	})
+require("which-key").setup {
+	-- your configuration comes here
+	-- or leave it empty to use the default settings
+	-- refer to the configuration section below
+	-- 
+}
 
 	use({
 		'nvim-telescope/telescope.nvim', tag = '0.1.4',
