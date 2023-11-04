@@ -26,6 +26,9 @@ wk.register({
 		},
 		b = {
 			name = "Buffer Management",
+			o = {
+				name = "Open Buffer",
+			},
 		},
 		m = {
 			name = "Marks Management",

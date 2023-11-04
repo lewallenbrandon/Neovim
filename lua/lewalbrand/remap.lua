@@ -62,6 +62,8 @@ vim.keymap.set("v", ">", ">gv", {desc="Indent Right"}) -- Indent right
 -- Already have a buffer menu command on bm using telescope
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", {desc="Previous Buffer"}) -- Previous buffer
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", {desc="Next Buffer"}) -- Next buffer
+vim.keymap.set('n', '<leader>bov', ':vnew<CR>', {desc="Open Buffer"}) -- Open buffer vertically
+vim.keymap.set('n', '<leader>boh', ':new<CR>', {desc="Open Buffer"}) -- Open buffer horizontally
 
 -- Marks Management
 -- Already have a marks menu command on mm using telescope
