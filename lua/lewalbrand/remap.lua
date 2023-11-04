@@ -44,16 +44,19 @@ vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv", {desc="Move Line Up"}) -- Move line
 vim.keymap.set('n', '<C-d>', '<C-d>zz', {desc="Move Screen Down"}) -- Move screen down while keeping cursor in middle
 vim.keymap.set('n', '<C-u>', '<C-u>zz', {desc="Move Screen Up"}) -- Move screen up while keeping cursor in middle
 vim.keymap.set('n', '<Esc>', '<Esc>:noh<CR>', {desc="Clear Search Highlighting"}) -- Clear search highlighting
+vim.keymap.set('n', '<leader><leader>', ':', {desc="Enter Command Mode"}) -- Enter command mode
+vim.keymap.set('n', '<leader><CR>', '@@', {desc="Repeat Last Macro"}) -- Repeat last macro
 
 
 -- Utility commands
-vim.keymap.set("n", "<leader>uq", ":q<CR>", {desc="Quit"}) -- Quit
-
 local function get_os()
 	return package.config:sub(1,1) == '/' and ":term<CR>" or ":Pwsh<CR>"
 end
 
+vim.keymap.set("n", "<leader>uq", ":q<CR>", {desc="Quit"}) -- Quit
 vim.keymap.set("n", "<leader>ut", get_os()  , {desc="Open Terminal"}) -- Open terminal/powershell
+vim.keymap.set("n", "<leader>uw", ":w<CR>", {desc="Save"}) -- Save
+vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", {desc="Save and Source"}) -- Save and source
 
 -- Git Management
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', {desc="Git Status"}) -- Git status
@@ -61,6 +64,9 @@ vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>', {desc="Git Commits"}
 vim.keymap.set('n', '<leader>gf', ':Git fetch<CR>', {desc="Git Fetch"}) -- Git fetch
 vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', {desc="Git Pull"}) -- Git pull
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', {desc="Git"}) -- Git push. r added as safety
+vim.keymap.set('n', '<leader>gau', ':Git add -u<CR>', {desc="Git Add -u"}) -- Git add update
+vim.keymap.set('n', '<leader>gaa', ':Git add -A<CR>', {desc="Git Add -A"}) -- Git add all
+vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', {desc="Git Commit"}) -- Git commit
 
 -- Shortcuts to Memorize
 --[[
