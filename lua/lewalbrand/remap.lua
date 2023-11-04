@@ -65,9 +65,6 @@ vim.keymap.set("n", "<leader>bn", ":bn<CR>", {desc="Next Buffer"}) -- Next buffe
 vim.keymap.set('n', '<leader>bov', ':vnew<CR>', {desc="Open Buffer"}) -- Open buffer vertically
 vim.keymap.set('n', '<leader>boh', ':new<CR>', {desc="Open Buffer"}) -- Open buffer horizontally
 
--- Marks Management
--- Already have a marks menu command on mm using telescope
-
 -- Miscellaneous 
 vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", {desc="Move Line Down"}) -- Move line down
 vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv", {desc="Move Line Up"}) -- Move line up
