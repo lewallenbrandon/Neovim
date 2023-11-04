@@ -66,6 +66,8 @@ vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', {desc="Git Pull"}) -- Git pul
 vim.keymap.set('n', '<leader>gaf', ':Git add % <CR>', {desc="Git Add This File"}) -- Git add file
 vim.keymap.set('n', '<leader>gau', ':Git add -u<CR>', {desc="Git Add -u"}) -- Git add update
 vim.keymap.set('n', '<leader>gaa', ':Git add -A<CR>', {desc="Git Add -A"}) -- Git add all
+vim.keymap.set('n', '<leader>gac', ':Git add -u <Bar> Git commit -m ""<Left>', {desc="Git Add -u and Commit"}) -- Git add update and commit
+
 vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', {desc="Git Commit"}) -- Git commit
 vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', {desc="Git Branches"}) -- Git branches
 
