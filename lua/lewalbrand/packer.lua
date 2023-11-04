@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
 	use('gennaro-tedesco/nvim-peekup')
 	use('tpope/vim-fugitive')
 	use('lewis6991/gitsigns.nvim')
+	use('nanozuki/tabby.nvim')
 	-- Plugins requiring options
 	--
 	use({

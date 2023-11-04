@@ -17,6 +17,7 @@ vim.keymap.set("n", "<leader>to", ":tabnew<CR>", {desc="New Tab"}) -- New tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", {desc="Close Tab"}) -- Close tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", {desc="Next Tab"}) -- Next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>", {desc="Previous Tab"}) -- Previous tab
+vim.keymap.set('n', "<leader>tr", ":tabr<CR>", {desc="Rename Tab"}) -- Rename tab
 
 -- File Explorer
 vim.keymap.set("n", "<leader>eo", ":NvimTreeToggle<CR>", {desc="Toggle File Explorer"}) -- Toggle file explorer
