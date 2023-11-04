@@ -23,7 +23,7 @@ vim.keymap.set("n", "<leader>eo", ":NvimTreeToggle<CR>", {desc="Toggle File Expl
 vim.keymap.set("n", "<leader>er", ":NvimTreeRefresh<CR>", {desc="Refresh File Explorer"}) -- Refresh file explorer
 vim.keymap.set("n", "<leader>ef", ":NvimTreeFocus<CR>", {desc="Focus File Explorer"}) -- Focus file explorer
 vim.keymap.set("n", "<leader>es", ":NvimTreeFindFile<CR>", {desc="Search and Focus in File Explorer"}) -- Search and Focus file in file explorer
-vim.keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", {desc="Collapse File Explorer"}) -- Collapse file explorer
+vim.keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", {desc="Collapse Folder"}) -- Collapse file explorer
 
 -- Visual Mode
 vim.keymap.set("v", "<", "<gv", {desc="Indent Left"}) -- Indent left
@@ -63,11 +63,14 @@ vim.keymap.set('n', '<leader>gs', ':Git<CR>', {desc="Git Status"}) -- Git status
 vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>', {desc="Git Commits"}) -- Git commit history one line
 vim.keymap.set('n', '<leader>gf', ':Git fetch<CR>', {desc="Git Fetch"}) -- Git fetch
 vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', {desc="Git Pull"}) -- Git pull 
-vim.keymap.set('n', '<leader>grp', ':Git push<CR>', {desc="Git Push"}) -- Git push. r added as safety
 vim.keymap.set('n', '<leader>gaf', ':Git add % <CR>', {desc="Git Add This File"}) -- Git add file
 vim.keymap.set('n', '<leader>gau', ':Git add -u<CR>', {desc="Git Add -u"}) -- Git add update
 vim.keymap.set('n', '<leader>gaa', ':Git add -A<CR>', {desc="Git Add -A"}) -- Git add all
 vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', {desc="Git Commit"}) -- Git commit
+vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', {desc="Git Branches"}) -- Git branches
+
+
+vim.keymap.set('n', '<leader>grp', ':Git push<CR>', {desc="Git Push"}) -- Git push. r added as safety
 
 -- Shortcuts to Memorize
 --[[
