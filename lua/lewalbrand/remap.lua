@@ -1,5 +1,22 @@
+--[[
+
+Below you will find the keymappings that made the most sense to me.
+These map roughly to some of the defaults, but in cases where I thought the defaults were not intuitive, I changed them.
+The leader key is heavily emphasized and the combination with which-key makes it easy to see what is available.
+Note that there are some other mappings not listed below, like Harpoon, which are defined in their respective files.
+
+API Reference:
+vim.keymap.set(MODE, KEY_SEQUENCE, KEYS_IT_PRESSES/COMMAND_IT_RUNS, OPTIONS={desc="DESCRIPTION"})
+
+Modes:
+n = Normal
+i = Insert
+v = Visual
+
+]] --
+
+-- Leader key is space
 vim.g.mapleader = " "
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Window management
 vim.keymap.set("n", "<leader>wv", "<C-w>v", {desc="Split Window Vertically"}) -- split window vertically
@@ -84,47 +101,4 @@ vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', {desc="Git Branches"}) 
 
 
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', {desc="Git Push"}) -- Git push. r added as safety
--- test theory
 
--- Shortcuts to Memorize
---[[
-
-  -- Movement 
-  [[ | begin this or next func 
-  <C-e> | move screen down one line.
-  <C-y> | move screen up one line
-  <C-b> | move screen up a page
-  <C-f> | move screen down a page
-  <C-d> | move cursor and screen down 1/2 page
-  <C-u> | move cursor and screeup up 1/2 page
-
-  -- Diff 
-  [c and ]c | prev and nex diff
-
-  -- Buffer
-  bp and bn | prev and next buffer
-
-  -- Marks
-  `` | Previous location before jump
-  `. | go to last change
-  `" | last edit
-
-  -- Insert Mode Stuff
-  <C-w> | Delete Word b4 cursor
-  <C-u> | Delete Line b4 cursor
-
-  -- Command Line Mode
-  :g/foo/command | apply a command on all matching lines
-
-  -- Window Management
-  <C-w> +-<> | Increase/Decrease window/height width
-
-  -- Registers
-  "_ | Blackhole register
-  "+ | System Clipboard
-
-  -- Startup
-  nvim <filename> +123 | goto line 123
-
-
-]] --
