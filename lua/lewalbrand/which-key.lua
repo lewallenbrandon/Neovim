@@ -28,6 +28,9 @@ wk.register({
 			t = {
 				name = "Git Telescope",
 			},
+			r = {
+				name = "Git Safe",
+			},
 		},
 		-- Ignore Toplevel movement
 		h = "which_key_ignore",

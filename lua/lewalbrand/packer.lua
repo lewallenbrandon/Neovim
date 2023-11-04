@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
 	use('chentoast/marks.nvim')
 	use('gennaro-tedesco/nvim-peekup')
 	use('tpope/vim-fugitive')
+	use('lewis6991/gitsigns.nvim')
 	-- Plugins requiring options
 	--
 	use({

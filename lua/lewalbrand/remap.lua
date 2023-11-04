@@ -60,6 +60,7 @@ vim.keymap.set('n', '<leader>gs', ':Git<CR>', {desc="Git Status"}) -- Git status
 vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>', {desc="Git Commits"}) -- Git commit history one line
 vim.keymap.set('n', '<leader>gf', ':Git fetch<CR>', {desc="Git Fetch"}) -- Git fetch
 vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', {desc="Git Pull"}) -- Git pull
+vim.keymap.set('n', '<leader>grp', ':Git push<CR>', {desc="Git"}) -- Git push. r added as safety
 
 -- Shortcuts to Memorize
 --[[
