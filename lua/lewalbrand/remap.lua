@@ -17,7 +17,17 @@ vim.keymap.set("n", "<leader>to", ":tabnew<CR>", {desc="New Tab"}) -- New tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", {desc="Close Tab"}) -- Close tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", {desc="Next Tab"}) -- Next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>", {desc="Previous Tab"}) -- Previous tab
-vim.keymap.set('n', "<leader>tr", ":tabr<CR>", {desc="Rename Tab"}) -- Rename tab
+vim.keymap.set('n', "<leader>tr", ":TabRename ", {desc="Rename Tab"}) -- Rename tab
+vim.keymap.set('n', "<leader>tg1", "1gt", {desc="First Tab"}) -- First tab
+vim.keymap.set('n', "<leader>tg2", "2gt", {desc="Second Tab"}) -- Second tab
+vim.keymap.set('n', "<leader>tg3", "3gt", {desc="Third Tab"}) -- Third tab
+vim.keymap.set('n', "<leader>tg4", "4gt", {desc="Fourth Tab"}) -- Fourth tab
+vim.keymap.set('n', "<leader>tg5", "5gt", {desc="Fifth Tab"}) -- Fifth tab
+vim.keymap.set('n', "<leader>tg6", "6gt", {desc="Sixth Tab"}) -- Sixth tab
+vim.keymap.set('n', "<leader>tg7", "7gt", {desc="Seventh Tab"}) -- Seventh tab
+vim.keymap.set('n', "<leader>tg8", "8gt", {desc="Eighth Tab"}) -- Eighth tab
+vim.keymap.set('n', "<leader>tg9", "9gt", {desc="Ninth Tab"}) -- Ninth tab
+vim.keymap.set('n', "<leader>tg0", ":tablast<CR>", {desc="Last Tab"}) -- Last tab
 
 -- File Explorer
 vim.keymap.set("n", "<leader>eo", ":NvimTreeToggle<CR>", {desc="Toggle File Explorer"}) -- Toggle file explorer

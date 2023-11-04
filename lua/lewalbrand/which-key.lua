@@ -13,9 +13,16 @@ wk.register({
 		},
 		t = {
 			name = "Tab Management",
+			g = {
+				name = "Go to Tab Number",
+			},
 		},
 		H = {
 			name = "Harpoon",
+			g = { name = "Go to Harpoon Number" },
+		},
+		u = {
+			name = "Utilities",
 		},
 		b = {
 			name = "Buffer Management",
@@ -31,6 +38,12 @@ wk.register({
 			r = {
 				name = "Git Safe",
 			},
+			a = {
+				name = "Git Add",
+			},
+			b = {
+				name = "Git Branch",
+			}
 		},
 		-- Ignore Toplevel movement
 		h = "which_key_ignore",
