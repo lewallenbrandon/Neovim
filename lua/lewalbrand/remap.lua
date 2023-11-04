@@ -71,6 +71,7 @@ vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', {desc="Git Branches"}) 
 
 
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', {desc="Git Push"}) -- Git push. r added as safety
+-- test theory
 
 -- Shortcuts to Memorize
 --[[
