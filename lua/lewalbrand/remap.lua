@@ -48,11 +48,18 @@ vim.keymap.set('n', '<Esc>', '<Esc>:noh<CR>', {desc="Clear Search Highlighting"}
 
 -- Utility commands
 vim.keymap.set("n", "<leader>uq", ":q<CR>", {desc="Quit"}) -- Quit
+
 local function get_os()
 	return package.config:sub(1,1) == '/' and ":term<CR>" or ":Pwsh<CR>"
 end
+
 vim.keymap.set("n", "<leader>ut", get_os()  , {desc="Open Terminal"}) -- Open terminal/powershell
 
+-- Git Management
+vim.keymap.set('n', '<leader>gs', ':Git<CR>', {desc="Git Status"}) -- Git status
+vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>', {desc="Git Commits"}) -- Git commit history one line
+vim.keymap.set('n', '<leader>gf', ':Git fetch<CR>', {desc="Git Fetch"}) -- Git fetch
+vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', {desc="Git Pull"}) -- Git pull
 
 -- Shortcuts to Memorize
 --[[
