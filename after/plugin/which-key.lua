@@ -23,7 +23,7 @@ wk.register({
 		H = {
 			name = "Harpoon",
 			g = {
-				name = "Go to Harpoon Number" 
+				name = "Go to Harpoon Number"
 			},
 		},
 		u = {
@@ -53,14 +53,39 @@ wk.register({
 				name = "Git Branch",
 			}
 		},
+		p = {
+			name = "Programming Utilities",
+			g = {
+				name = "Go To...",
+				d = { name = "Definition" },
+				r = { name = "References" },
+				i = { name = "Implementation" },
+				n = { name = "Initialization" },
+
+			},
+			r = {
+				name = "Refactor",
+				f = { name = "Format File" },
+				c = { name = "Code Action" },
+
+				r = { name = "Rename" },
+
+
+			}
+
+		},
+
+		q = {
+			name = "Quickfix",
+		},
 		-- Ignore Toplevel movement
 		h = "which_key_ignore",
 		j = "which_key_ignore",
 		k = "which_key_ignore",
 		l = "which_key_ignore",
 		["<Tab>"] = "which_key_ignore",
-		
+		["<CR>"] = "which_key_ignore",
+		["<space>"] = "which_key_ignore"
 	},
 
 })
-
