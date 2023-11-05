@@ -31,5 +31,4 @@ local M = {
 		yadm = { enable = false },
 	},
 }
-
 return M

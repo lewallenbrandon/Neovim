@@ -1,14 +1,8 @@
 local M = {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
-	init = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 300
-	end,
-	opts = function() 
-		local wk = require("which-key")
-
-		wk.register({
+	opts = { 
+		defaults = {
 			["<leader>"] = {
 				f = {
 					name = "File",
@@ -69,10 +63,7 @@ local M = {
 					},
 					r = {
 						name = "Refactor",
-
-
-
-					}
+					},
 
 
 				},
@@ -89,8 +80,13 @@ local M = {
 				["<CR>"] = "which_key_ignore",
 				["<space>"] = "which_key_ignore"
 			},
-
-		})
-	end 
+		},
+	},	
+	config = function(_,opts)
+		local wk = require("which-key")
+		wk.setup(opts)
+		wk.register(opts.defaults)
+	end,
 }
-	return M
+
+return M
