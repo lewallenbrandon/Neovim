@@ -57,22 +57,16 @@ wk.register({
 			name = "Programming Utilities",
 			g = {
 				name = "Go To...",
-				d = { name = "Definition" },
-				r = { name = "References" },
-				i = { name = "Implementation" },
-				n = { name = "Initialization" },
 
 			},
 			r = {
 				name = "Refactor",
-				f = { name = "Format File" },
-				c = { name = "Code Action" },
-
-				r = { name = "Rename" },
+  	
 
 
 			}
 
+  	
 		},
 
 		q = {
