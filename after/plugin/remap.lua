@@ -107,9 +107,24 @@ vim.keymap.set("n", "<leader>ut", get_os(), { desc = "Open Terminal" })         
 vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" })                         -- Save
 vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
 
-
+-- Git Helper Functions
+local function close_git_window()
+	-- Iterate through all buffers
+	for x, name in ipairs(vim.api.nvim_list_wins()) do
+		local buf_handle
+		local buf_name
+		buf_handle = vim.api.nvim_win_get_buf(name)
+		buf_name = vim.api.nvim_buf_get_name(buf_handle)
+		local result = string.find(buf_name, "fugitive:")
+		if buf_name and result then
+			vim.api.nvim_win_close(name, true)
+		end
+	end
+	return 
+end
 -- Git Management
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = "Git Status" })                                             -- Git status
+vim.keymap.set('n', '<leader>gx', function() close_git_window() end, {desc = "Close Git Window"})
 vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>', { desc = "Git Commits" })                              -- Git commit history one line
 vim.keymap.set('n', '<leader>gf', ':Git fetch<CR>', { desc = "Git Fetch" })                                        -- Git fetch
 vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', { desc = "Git Pull" })                                          -- Git pull
@@ -119,7 +134,7 @@ vim.keymap.set('n', '<leader>gaa', ':Git add -A<CR>', { desc = "Git Add -A" })  
 vim.keymap.set('n', '<leader>gac', ':Git add -u <Bar> Git commit -m ""<Left>', { desc = "Git Add -u and Commit" }) -- Git add update and commit
 vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', { desc = "Git Commit" })                              -- Git commit
 vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', { desc = "List Branches" })                                -- Git branches
-vim.keymap.set('n', '<leader>gbc', ':Git checkout -b', {desc="Create Branch"}) -- Create Branch
+vim.keymap.set('n', '<leader>gbc', ':Git checkout -b ', {desc="Create Branch"}) -- Create Branch
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', { desc = "Git Push" })                                         -- Git push. r added as safety
 
 
