@@ -118,7 +118,8 @@ vim.keymap.set('n', '<leader>gau', ':Git add -u<CR>', { desc = "Git Add -u" })  
 vim.keymap.set('n', '<leader>gaa', ':Git add -A<CR>', { desc = "Git Add -A" })                                     -- Git add all
 vim.keymap.set('n', '<leader>gac', ':Git add -u <Bar> Git commit -m ""<Left>', { desc = "Git Add -u and Commit" }) -- Git add update and commit
 vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', { desc = "Git Commit" })                              -- Git commit
-vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', { desc = "Git Branches" })                                -- Git branches
+vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', { desc = "List Branches" })                                -- Git branches
+vim.keymap.set('n', '<leader>gbc', ':Git checkout -b', {desc="Create Branch"}) -- Create Branch
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', { desc = "Git Push" })                                         -- Git push. r added as safety
 
 
