@@ -26,6 +26,10 @@ return require('packer').startup(function(use)
 			require('leap').add_default_mappings()
 	end,
 	})
+	use( {
+		'goolord/alpha-nvim',
+		requires = { 'nvim-tree/nvim-web-devicons' },
+	})
 
 	-- Lua
 	use ({
@@ -36,12 +40,6 @@ return require('packer').startup(function(use)
 
 		end,
 	})
-	require("which-key").setup {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
-		-- 
-	}
 
 	use({
 		'nvim-telescope/telescope.nvim', tag = '0.1.4',

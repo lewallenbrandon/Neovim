@@ -55,8 +55,7 @@ wk.register({
 		l = "which_key_ignore",
 		["<Tab>"] = "which_key_ignore",
 		
+	},
 
-
-	}
 })
 
