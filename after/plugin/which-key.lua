@@ -10,6 +10,9 @@ wk.register({
 		},
 		w = {
 			name = "Window Management",
+			r = {
+				name = "Resize Window",
+			},
 		},
 		t = {
 			name = "Tab Management",
@@ -19,7 +22,9 @@ wk.register({
 		},
 		H = {
 			name = "Harpoon",
-			g = { name = "Go to Harpoon Number" },
+			g = {
+				name = "Go to Harpoon Number" 
+			},
 		},
 		u = {
 			name = "Utilities",

@@ -21,13 +21,17 @@ vim.g.mapleader = " "
 -- Window management
 vim.keymap.set("n", "<leader>wv", "<C-w>v", {desc="Split Window Vertically"}) -- split window vertically
 vim.keymap.set("n", "<leader>wh", "<C-w>s", {desc="Split Window Horizontally"}) -- Split window horizontally
-vim.keymap.set("n", "<leader>we", "<C-w>=", {desc="Equalize Window Sizes"}) -- Equalize window sizes
+vim.keymap.set("n", "<leader>wre", "<C-w>=", {desc="Equalize Window Sizes"}) -- Equalize window sizes
 vim.keymap.set("n", "<leader>wx", ":close<CR>", {desc="Close Current Split Window"}) -- Close current split window
 vim.keymap.set("n", "<leader><Tab>", "<C-w>w", {desc="Switch to Next Window"}) -- Switch to next window
 vim.keymap.set("n", "<leader>h", "<C-w>h", {desc="Move to Left Window"}) -- Move to left window
 vim.keymap.set("n", "<leader>j", "<C-w>j", {desc="Move to Bottom Window"}) -- Move to bottom window
 vim.keymap.set("n", "<leader>k", "<C-w>k", {desc="Move to Top Window"}) -- Move to top window
 vim.keymap.set("n", "<leader>l", "<C-w>l", {desc="Move to Right Window"}) -- Move to right window
+vim.keymap.set("n", "<leader>wrm", ":vertical resize +999 <Bar>  resize +999<CR>", {desc="Maximize Window Size"}) -- Maximize window size
+-- create a function to get the window with the biggest size
+
+vim.keymap.set("n", "<leader>wrs",  ":vertical resize -999 <CR> <C-w>w <CR>", {desc="Minimize Window Size"}) -- Minimize window size
 
 -- Tab Management 
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>", {desc="New Tab"}) -- New tab
@@ -62,8 +66,8 @@ vim.keymap.set("v", ">", ">gv", {desc="Indent Right"}) -- Indent right
 -- Already have a buffer menu command on bm using telescope
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", {desc="Previous Buffer"}) -- Previous buffer
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", {desc="Next Buffer"}) -- Next buffer
-vim.keymap.set('n', '<leader>bov', ':vnew<CR>', {desc="Open Buffer"}) -- Open buffer vertically
-vim.keymap.set('n', '<leader>boh', ':new<CR>', {desc="Open Buffer"}) -- Open buffer horizontally
+vim.keymap.set('n', '<leader>bov', ':vnew<CR>', {desc="Open Buffer [V]"}) -- Open buffer vertically
+vim.keymap.set('n', '<leader>boh', ':new<CR>', {desc="Open Buffer [H]"}) -- Open buffer horizontally
 
 -- Miscellaneous 
 vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", {desc="Move Line Down"}) -- Move line down
