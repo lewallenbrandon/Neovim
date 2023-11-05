@@ -26,8 +26,6 @@ dashboard.section.header.val = {
 [[                                                                     ░░██████ ]], 
 [[                                                                      ░░░░░░  ]], 
 
-
-
 }
 dashboard.section.buttons.val = {
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
