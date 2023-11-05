@@ -1,8 +1,4 @@
-
-
-local M = {}
-
-M = {
+local M = {
 	"nvim-lualine/lualine.nvim",
 	event="VeryLazy",
 	opts= function()

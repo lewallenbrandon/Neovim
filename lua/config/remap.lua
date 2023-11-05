@@ -64,6 +64,17 @@ vim.keymap.set("n", "<leader>ef", ":NvimTreeFocus<CR>", { desc = "Focus File Exp
 vim.keymap.set("n", "<leader>es", ":NvimTreeFindFile<CR>", { desc = "Search and Focus in File Explorer" }) -- Search and Focus file in file explorer
 vim.keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", { desc = "Collapse Folder" })                   -- Collapse file explorer
 
+-- Harpoon
+
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>Hf", mark.add_file, {desc="Harpoon File"}) -- Add current file to list
+vim.keymap.set("n", "<leader>Hm", ui.toggle_quick_menu, {desc="Toggle Harpoon Menu"}) -- Toggle quick menu
+vim.keymap.set("n", "<leader>Hg1", function () ui.nav_file(1) end, {desc="Harpoon 1"}) -- Navigate to file in position 1
+vim.keymap.set("n", "<leader>Hg2", function () ui.nav_file(2) end, {desc="Harpoon 2"}) -- Navigate to file in position 2
+vim.keymap.set("n", "<leader>Hg3", function () ui.nav_file(3) end, {desc="Harpoon 3"}) -- Navigate to file in position 3
+vim.keymap.set("n", "<leader>Hg4", function () ui.nav_file(4) end, {desc="Harpoon 4"}) -- Navigate to file in position 4
 
 
 
@@ -158,3 +169,26 @@ vim.keymap.set("n", "<leader>prc", function() vim.lsp.buf.code_action() end, { d
 vim.keymap.set("n", "<leader>pgi", function() vim.lsp.buf.implementation() end, { desc = "Implementation" })
 vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" }) -- Signature help
+
+
+-- Telescope 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc="Find files"}) -- Find files
+vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc="Git files"}) -- Git files
+vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({search = vim.fn.input("Grep > ")}) end, {desc="Grep string"}) -- Grep string
+vim.keymap.set('n', '<leader>fv', builtin.treesitter, {desc="Treesitter Variables"}) -- Treesitter
+
+vim.keymap.set('n', '<leader>bm', builtin.buffers, {desc="Buffers"}) -- Buffers
+vim.keymap.set('n', '<leader>mm', builtin.marks, {desc="Marks"}) -- Marks
+
+-- Utility Commands for finding info or doing more advanced stuff
+vim.keymap.set('n', '<leader>uh', builtin.help_tags, {desc="Help Tags"}) -- Help Tags
+vim.keymap.set('n', '<leader>uc', builtin.command_history, {desc="Command History"}) -- Commands
+vim.keymap.set('n', '<leader>us', builtin.search_history, {desc="Search History"}) -- Search History
+
+
+-- Git Management
+vim.keymap.set('n', '<leader>gts', builtin.git_status, {desc="Git Status"}) -- Git Status
+vim.keymap.set('n', '<leader>gtc', builtin.git_commits, {desc="Git Commits"}) -- Git Commits
+vim.keymap.set('n', '<leader>gtb', builtin.git_branches, {desc="Git Branches"}) -- Git Branches
+
