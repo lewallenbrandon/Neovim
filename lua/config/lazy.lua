@@ -13,7 +13,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 -- load lazy
 require("lazy").setup("plugins", {
-	install = { colorscheme = { "blue-moon" } },
+	install = { colorscheme = { "tokyonight" } },
 	defaults = { lazy = true },
 	ui = {
 		border = "rounded",
