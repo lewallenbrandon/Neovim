@@ -34,14 +34,12 @@ vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to Top Window" })     
 vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Move to Right Window" })                                         -- Move to right window
 
 
-
-
 -- Tab Management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "New Tab" })     -- New tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close Tab" }) -- Close tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Next Tab" })      -- Next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "Previous Tab" })  -- Previous tab
-vim.keymap.set('n', "<leader>tr", ":TabRename ", { desc = "Rename Tab" })  -- Rename tab
+vim.keymap.set('n', "<leader>tr", ":TName ''<Left>", { desc = "Rename Tab" })  -- Rename tab
 vim.keymap.set('n', "<leader>tg1", "1gt", { desc = "First Tab" })          -- First tab
 vim.keymap.set('n', "<leader>tg2", "2gt", { desc = "Second Tab" })         -- Second tab
 vim.keymap.set('n', "<leader>tg3", "3gt", { desc = "Third Tab" })          -- Third tab

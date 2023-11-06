@@ -26,12 +26,6 @@ local M = {
 						name = "Go to Tab Number",
 					},
 				},
-				H = {
-					name = "Harpoon",
-					g = {
-						name = "Go to Harpoon Number"
-					},
-				},
 				u = {
 					name = "Utilities",
 				},
@@ -72,9 +66,6 @@ local M = {
 
 				},
 
-				q = {
-					name = "Quickfix",
-				},
 				-- Ignore Toplevel movement
 				h = "which_key_ignore",
 				j = "which_key_ignore",

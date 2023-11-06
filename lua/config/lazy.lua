@@ -10,11 +10,13 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.dap.core"},
+    {'LazyVim/LazyVim', import = "lazyvim.plugins.extras.lang.python" },
+    {'LazyVim/LazyVim', import = "lazyvim.plugins.extras.dap.core"},
+    {'vim-scripts/Tab-Name', import = "plugin"},
+   
 
     -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+   --{ import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
   },
