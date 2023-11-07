@@ -34,6 +34,9 @@ local M = {
 					o = {
 						name = "Open Buffer",
 					},
+					t = {
+						name= "Buffer Telescope"
+					}
 				},
 				m = {
 					name = "Marks Management",
