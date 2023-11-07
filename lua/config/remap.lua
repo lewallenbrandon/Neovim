@@ -118,6 +118,9 @@ local function close_git_window()
 	end
 	return 
 end
+
+-- I love Shruthi so much!
+
 -- Git Management
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = "Git Status" })                                             -- Git status
 vim.keymap.set('n', '<leader>gx', function() close_git_window() end, {desc = "Close Git Window"})
