@@ -21,6 +21,7 @@ return {
 				view = "cmdline",
 				format = {
 					title= { "based" },
+					cmdline = { pattern = "^:", icon = "🤖", lang = "vim" }
 				},
 			},
 		})
