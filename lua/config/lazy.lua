@@ -12,7 +12,6 @@ require("lazy").setup({
     -- import any extras modules here
     {'LazyVim/LazyVim', import = "lazyvim.plugins.extras.lang.python" },
     {'LazyVim/LazyVim', import = "lazyvim.plugins.extras.dap.core"},
-    {'vim-scripts/Tab-Name', import = "plugin"},
    
 
     -- { import = "lazyvim.plugins.extras.lang.json" },

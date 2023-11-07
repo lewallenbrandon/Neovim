@@ -121,7 +121,7 @@ end
 -- Git Management
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = "Git Status" })                                             -- Git status
 vim.keymap.set('n', '<leader>gx', function() close_git_window() end, {desc = "Close Git Window"})
-vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>', { desc = "Git Commits" })                              -- Git commit history one line
+vim.keymap.set('n', '<leader>gl', ':Git log --pretty=format:"%H | %cn | %ah | %s %n"<CR>', { desc = "Git Commits" })                              -- Git commit history one line
 vim.keymap.set('n', '<leader>gf', ':Git fetch<CR>', { desc = "Git Fetch" })                                        -- Git fetch
 vim.keymap.set('n', '<leader>gp', ':Git pull<CR>', { desc = "Git Pull" })                                          -- Git pull
 vim.keymap.set('n', '<leader>gaf', ':Git add % <CR>', { desc = "Git Add This File" })                              -- Git add file
@@ -132,7 +132,6 @@ vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', { desc = "Git Commi
 vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', { desc = "List Branches" })                                -- Git branches
 vim.keymap.set('n', '<leader>gbc', ':Git checkout -b ', {desc="Create Branch"}) -- Create Branch
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', { desc = "Git Push" })                                         -- Git push. r added as safety
-
 
 -- Quickfix Management
 vim.keymap.set('n', '<leader>qo', ':Trouble<CR>', { desc = "Open Error List" })                                  -- Open Error List
@@ -162,6 +161,8 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc="Find files"}) -- Fi
 vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc="Git files"}) -- Git files
 vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({search = vim.fn.input("Grep > ")}) end, {desc="Grep string"}) -- Grep string
 vim.keymap.set('n', '<leader>fv', builtin.treesitter, {desc="Treesitter Variables"}) -- Treesitter
+vim.keymap.set('n', '<leader>fb', builtin.file_browser, {desc="File Browser"})
+vim.keymap.set('n', '<leader>btf', builtin.current_buffer_fuzzy_find, {desc="Current Buffer Fuzzy Find"})
 
 vim.keymap.set('n', '<leader>bm', builtin.buffers, {desc="Buffers"}) -- Buffers
 vim.keymap.set('n', '<leader>mm', builtin.marks, {desc="Marks"}) -- Marks

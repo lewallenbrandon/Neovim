@@ -65,6 +65,12 @@ local M = {
 
 
 				},
+				q = {
+					name = "Quick Fix",
+				},
+				s = {
+					name = "Session Management",
+				},
 
 				-- Ignore Toplevel movement
 				h = "which_key_ignore",
