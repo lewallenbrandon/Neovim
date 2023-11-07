@@ -1,4 +1,4 @@
 return {
-	"numToStr/Comment.nvim",
-	"nvim-lua/plenary.nvim",
+	{"numToStr/Comment.nvim",  event={"BufReadPre", "BufNewFile"}, config=true},
+	{"nvim-lua/plenary.nvim", lazy=false},
 }

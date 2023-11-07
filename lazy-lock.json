@@ -2,7 +2,6 @@
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LazyVim": { "branch": "main", "commit": "68ff818a5bb7549f90b05e412b76fe448f605ffb" },
   "LuaSnip": { "branch": "master", "commit": "a4de64570b9620875c8ea04175cd07ed8e32ac99" },
-  "Tab-Name": { "branch": "master", "commit": "a35425d086f76c1b9a18a564feb7e9aeab9b7ff7" },
   "blue-moon": { "branch": "master", "commit": "179ac53aae7a82ecbbc5a2589c304361846e8be8" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "8ee981b4a91f536f52add291594e89fb6645e451" },
