@@ -161,10 +161,11 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc="Find files"}) -- Fi
 vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc="Git files"}) -- Git files
 vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({search = vim.fn.input("Grep > ")}) end, {desc="Grep string"}) -- Grep string
 vim.keymap.set('n', '<leader>fv', builtin.treesitter, {desc="Treesitter Variables"}) -- Treesitter
-vim.keymap.set('n', '<leader>fb', builtin.file_browser, {desc="File Browser"})
-vim.keymap.set('n', '<leader>btf', builtin.current_buffer_fuzzy_find, {desc="Current Buffer Fuzzy Find"})
+vim.keymap.set('n', '<leader>fb', ":Telescope file_browser<CR>", {desc="File Browser"})
 
 vim.keymap.set('n', '<leader>bm', builtin.buffers, {desc="Buffers"}) -- Buffers
+vim.keymap.set('n', '<leader>btf', builtin.current_buffer_fuzzy_find, {desc="Current Buffer Fuzzy Find"})
+
 vim.keymap.set('n', '<leader>mm', builtin.marks, {desc="Marks"}) -- Marks
 
 -- Utility Commands for finding info or doing more advanced stuff
