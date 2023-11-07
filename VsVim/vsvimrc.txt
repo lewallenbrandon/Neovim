@@ -1,6 +1,7 @@
 set relativenumber
 set number
 set incsearch
+set ignorecase
 
 
 " Split Window Vertically
@@ -129,4 +130,96 @@ nnoremap <space><space> :
 
 " Repeat Last Macro
 nnoremap <space><CR> @@
+
+
+
+
+
+" Programming commands
+
+"Toggle CPP/Header file
+nnoremap <space>pgf EditorContextMenus.CodeWindow.ToggleHeaderCodeFile<CR>
+
+"Go to Definition
+nnoremap <space>pgd gd<CR>
+
+"Go to References
+nnoremap <space>pgr gr<CR>
+
+"Go to Declaration
+nnoremap <space>pgn gD<CR>
+
+"Go to Implementation
+nnoremap <space>pgi gi<CR>
+
+"Hover
+nnoremap <space>ph <C-k>
+
+
+
+# Programming refactor commands <space>pr
+
+"Rename variable
+nnoremap <space>prr :vsc EditorContextMenus.CodeWindow.Rename<CR>
+
+" Extract variable
+nnoremap <space>prv :vsc EditorContextMenus.CodeWindow.ExtractVariable<CR>
+
+" Extract method
+nnoremap <space>prm :vsc EditorContextMenus.CodeWindow.ExtractMethod<CR>
+
+
+
+
+" Toggle line comment
+nnoremap <space>pcl :vsc EditorContextMenus.CodeWindow.ToggleLineComment<CR>
+
+" Toggle block comment
+nnoremap <space>pcb :vsc EditorContextMenus.CodeWindow.ToggleBlockComment<CR>
+
+
+
+" Build the Solution
+nnoremap <space>pbb :vsc C_Cpp.BuildActiveFile<CR>
+
+" Rebuid the Solution
+nnoremap <space>pbr :vsc C_Cpp.RebuildActiveFile<CR>
+
+
+
+
+" Find commands <space>f
+
+" Find File in Solution Explorer
+nnoremap <space>ff :vsc EditorContextMenus.CodeWindow.OpenFileInSolutionExplorer<CR>
+
+" Find in Files
+nnoremap <space>fs :vsc EditorContextMenus.CodeWindow.FindInFiles<CR>
+
+
+
+" Utility commands <space>u
+
+" Quit
+nnoremap <space>uq :q<CR>
+
+" Save
+nnoremap <space>uw :w<CR>
+
+" Open terminal
+nnoremap <space>ut :vsc Terminal.ToggleTerminal<CR>
+
+"
+
+"
+
+"
+
+"
+" Here are all the Debugging mappings
+" Toggle breakpoint
+nnoremap <space>db :vsc Debug.ToggleBreakpoint<CR>
+
+
+
 
