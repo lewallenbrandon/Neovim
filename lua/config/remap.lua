@@ -132,6 +132,7 @@ vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<Left>', { desc = "Git Commi
 vim.keymap.set('n', '<leader>gbl', ':Git branch -l<CR>', { desc = "List Branches" })                                -- Git branches
 vim.keymap.set('n', '<leader>gbc', ':Git checkout -b ', {desc="Create Branch"}) -- Create Branch
 vim.keymap.set('n', '<leader>grp', ':Git push<CR>', { desc = "Git Push" })                                         -- Git push. r added as safety
+vim.keymap.set('n', '<leader>ghl', ':Gitsigns toggle_current_line_blame<CR>', {desc="Toggle Line Blame"}) -- Toggle line blame
 
 -- Quickfix Management
 vim.keymap.set('n', '<leader>qo', ':Trouble<CR>', { desc = "Open Error List" })                                  -- Open Error List
