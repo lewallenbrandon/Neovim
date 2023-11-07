@@ -1,3 +1,4 @@
 return {
-    {'vim-scripts/Tab-Name'},
+	"numToStr/Comment.nvim",
+	"nvim-lua/plenary.nvim",
 }
