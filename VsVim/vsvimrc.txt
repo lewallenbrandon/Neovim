@@ -147,7 +147,7 @@ nnoremap <space>pgd gd<CR>
 nnoremap <space>pgr gr<CR>
 
 "Go to Declaration
-nnoremap <space>pgn gD<CR>
+nnoremap <space>pgn :vsc Edit.GoToDeclaration<CR>
 
 "Go to Implementation
 nnoremap <space>pgi gi<CR>
@@ -163,27 +163,24 @@ nnoremap <space>ph <C-k>
 nnoremap <space>prr :vsc EditorContextMenus.CodeWindow.Rename<CR>
 
 " Extract variable
-nnoremap <space>prv :vsc EditorContextMenus.CodeWindow.ExtractVariable<CR>
-
-" Extract method
-nnoremap <space>prm :vsc EditorContextMenus.CodeWindow.ExtractMethod<CR>
+nnoremap <space>prv :vsc ReSharper.ReSharper_IntroduceVariable<CR>
 
 
 
 
 " Toggle line comment
-nnoremap <space>pcl :vsc EditorContextMenus.CodeWindow.ToggleLineComment<CR>
+nnoremap <space>pcl :vsc ReSharper.ReSharper_LineComment<CR>
 
 " Toggle block comment
-nnoremap <space>pcb :vsc EditorContextMenus.CodeWindow.ToggleBlockComment<CR>
+nnoremap <space>pcb :vsc ReSharper.ReSharper_BlockComment<CR>
 
 
 
 " Build the Solution
-nnoremap <space>pbb :vsc C_Cpp.BuildActiveFile<CR>
+nnoremap <space>pbb :vsc Build.BuildSolution<CR>
 
 " Rebuid the Solution
-nnoremap <space>pbr :vsc C_Cpp.RebuildActiveFile<CR>
+nnoremap <space>pbr :vsc Build.RebuildSolution<CR>
 
 
 
@@ -191,10 +188,10 @@ nnoremap <space>pbr :vsc C_Cpp.RebuildActiveFile<CR>
 " Find commands <space>f
 
 " Find File in Solution Explorer
-nnoremap <space>ff :vsc EditorContextMenus.CodeWindow.OpenFileInSolutionExplorer<CR>
+nnoremap <space>ff :vsc Window.ActivateSolutionExplorerSearch<CR>
 
 " Find in Files
-nnoremap <space>fs :vsc EditorContextMenus.CodeWindow.FindInFiles<CR>
+nnoremap <space>fs :vsc Edit.FindInFiles<CR>
 
 
 
@@ -209,16 +206,48 @@ nnoremap <space>uw :w<CR>
 " Open terminal
 nnoremap <space>ut :vsc Terminal.ToggleTerminal<CR>
 
-"
 
-"
 
-"
 
-"
 " Here are all the Debugging mappings
+
 " Toggle breakpoint
-nnoremap <space>db :vsc Debug.ToggleBreakpoint<CR>
+nnoremap <space>dba :vsc Debug.ToggleBreakpoint<CR>
+
+" Go to breakpoints window
+nnoremamp <space>dgb :vsc Debug.Breakpoints<CR>
+
+" Step over
+nnoremap <space>dso :vsc Debug.StepOver<CR>
+
+" Step into
+nnoremap <space>dsi :vsc Debug.StepInto<CR>
+
+" Step out
+nnoremap <space>dsx :vsc Debug.StepOut<CR>
+
+" Add Watch
+nnoremap <space>dwa :vsc Debug.AddWatch<CR>
+
+" Go to watch window
+nnoremap <space>dgw :vsc Debug.Watch<CR>
+
+" Go to call stack 
+nnoermap <space>dgc :vsc Debug.CallStack<CR>
+
+" Go to output
+nnoremap <space>dgo :vsc Debug.Output<CR>
+
+" Attach to process
+nnoremap <space>dsa :vsc Debug.AttachToProcess<CR>
+
+"
+
+"
+
+"
+
+"
 
 
 
