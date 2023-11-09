@@ -147,7 +147,6 @@ nnoremap <space>pgn :vsc Edit.GoToDeclaration<CR>
 nnoremap <space>pgi gi<CR>
 
 "Peek Defn
-nnoremap <space>pgi gi<CR>
 
 "Hover
 nnoremap <space>ph <C-k>
