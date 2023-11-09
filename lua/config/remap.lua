@@ -166,6 +166,7 @@ vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc="Git files"}) -- Git 
 vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({search = vim.fn.input("Grep > ")}) end, {desc="Grep string"}) -- Grep string
 vim.keymap.set('n', '<leader>fv', builtin.treesitter, {desc="Treesitter Variables"}) -- Treesitter
 vim.keymap.set('n', '<leader>fb', ":Telescope file_browser<CR>", {desc="File Browser"})
+vim.keymap.set('n', '<leader>fn', ":Telescope notify<CR>", {desc="Notifications"})
 
 vim.keymap.set('n', '<leader>bm', builtin.buffers, {desc="Buffers"}) -- Buffers
 vim.keymap.set('n', '<leader>btf', builtin.current_buffer_fuzzy_find, {desc="Current Buffer Fuzzy Find"})
