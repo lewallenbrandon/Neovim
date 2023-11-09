@@ -23,9 +23,6 @@ return {
 					title= { "based" },
 					cmdline = { pattern = "^:", icon = "🤖", lang = "vim" }
 				},
-			messages = {
-					enabled = false,
-				}
 			},
 		})
 	end,
