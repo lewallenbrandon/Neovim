@@ -3,7 +3,6 @@ set number
 set incsearch
 set ignorecase
 
-
 " Split Window Vertically
 nnoremap <space>wv <C-w>v <C-w>l
 
@@ -31,6 +30,9 @@ nnoremap <space>k <C-w>k
 " Move to Right Window
 nnoremap <space>l <C-w>l
 
+
+
+
 " New Tab
 nnoremap <space>to :tabnew<CR>
 
@@ -42,6 +44,9 @@ nnoremap <space>tn :tabn<CR>
 
 " Previous Tab
 nnoremap <space>tp :tabp<CR>
+
+" Save Tab 
+nnoremap <space>ts :vsc Window.PinTab<CR>
 
 
 " First Tab
@@ -74,23 +79,9 @@ nnoremap <space>tg9 9gt
 " Last Tab
 nnoremap <space>tg0 :tablast<CR>
 
-" Toggle File Explorer
-"nnoremap <space>eo :NvimTreeToggle<CR>
-"
-"" Close File Explorer
-"nnoremap <space>ex :NvimTreeClose<CR>
-"
-"" Refresh File Explorer
-"nnoremap <space>er :NvimTreeRefresh<CR>
-"
-"" Focus File Explorer
-"nnoremap <space>ef :NvimTreeFocus<CR>
-"
-"" Search and Focus in File Explorer
-"nnoremap <space>es :NvimTreeFindFile<CR>
-"
-"" Collapse Folder
-"nnoremap <space>ec :NvimTreeCollapse<CR>
+
+
+
 
 " Indent Left in Visual Mode
 vnoremap < <gv
@@ -138,13 +129,16 @@ nnoremap <space><CR> @@
 " Programming commands
 
 "Toggle CPP/Header file
-nnoremap <space>pgf EditorContextMenus.CodeWindow.ToggleHeaderCodeFile<CR>
+nnoremap <space>pgf :vsc EditorContextMenus.CodeWindow.ToggleHeaderCodeFile<CR>
 
 "Go to Definition
 nnoremap <space>pgd gd<CR>
 
+"Peek Defn
+nnoremap <space>ppd :vsc Edit.PeekDefinition<CR>
+
 "Go to References
-nnoremap <space>pgr gr<CR>
+nnoremap <space>pgr :vsc Edit.FindAllReferences<CR>
 
 "Go to Declaration
 nnoremap <space>pgn :vsc Edit.GoToDeclaration<CR>
@@ -152,12 +146,15 @@ nnoremap <space>pgn :vsc Edit.GoToDeclaration<CR>
 "Go to Implementation
 nnoremap <space>pgi gi<CR>
 
+"Peek Defn
+nnoremap <space>pgi gi<CR>
+
 "Hover
 nnoremap <space>ph <C-k>
 
 
 
-# Programming refactor commands <space>pr
+" Programming refactor commands <space>pr
 
 "Rename variable
 nnoremap <space>prr :vsc EditorContextMenus.CodeWindow.Rename<CR>
@@ -204,7 +201,14 @@ nnoremap <space>uq :q<CR>
 nnoremap <space>uw :w<CR>
 
 " Open terminal
-nnoremap <space>ut :vsc Terminal.ToggleTerminal<CR>
+nnoremap <space>ut :vsc View.Terminal<CR>
+
+" Copy Full Path
+nnoremap <space>up :vsc File.CopyFullPath<CR>
+
+
+" Source File 
+nnoremap <space>usf :source C:\Users\dvadmin\.vsvimrc<CR>
 
 
 
@@ -215,7 +219,16 @@ nnoremap <space>ut :vsc Terminal.ToggleTerminal<CR>
 nnoremap <space>dba :vsc Debug.ToggleBreakpoint<CR>
 
 " Go to breakpoints window
-nnoremamp <space>dgb :vsc Debug.Breakpoints<CR>
+nnoremap <space>dgb :vsc Debug.Breakpoints<CR>
+
+" Run to Curscor 
+nnoremap <space>drc :vsc Debug.StepOver<CR>
+
+" Start Debug
+nnoremap <space>drs :vsc Debug.Start<CR>
+
+" Stop Debug
+nnoremap <space>drx :vsc Debug.StopDebugging<CR>
 
 " Step over
 nnoremap <space>dso :vsc Debug.StepOver<CR>
@@ -233,7 +246,7 @@ nnoremap <space>dwa :vsc Debug.AddWatch<CR>
 nnoremap <space>dgw :vsc Debug.Watch<CR>
 
 " Go to call stack 
-nnoermap <space>dgc :vsc Debug.CallStack<CR>
+nnoremap <space>dgc :vsc Debug.CallStack<CR>
 
 " Go to output
 nnoremap <space>dgo :vsc Debug.Output<CR>
@@ -241,14 +254,42 @@ nnoremap <space>dgo :vsc Debug.Output<CR>
 " Attach to process
 nnoremap <space>dsa :vsc Debug.AttachToProcess<CR>
 
-"
-
-"
-
-"
-
-"
+" Reattach to proc
+nnoremap <space>dsr :vsc Debug.ReattachToProcess<CR>
 
 
+" Git Commands
+
+" Git Branches
+nnoremap <space>gbl :vsc Team.Git.ManageBranches<CR>
+
+" Git Fetch
+nnoremap <space>gf :vsc Team.Git.Fetch<CR>
+
+" Git Pull
+nnoremap <space>gp :vsc Team.Git.Pull<CR>
+
+" Git Push
+nnoremap <space>grp :vsc Team.Git.Push<CR>
+
+" Git Log
+nnoremap <space>gl :vsc Team.Git.ViewHistory<CR>
+
+" Git Browser
+nnoremap <space>gob :vsc Team.Git.OpenBrowser<CR>
+
+" Git Blame
+nnoremap <space>ghl :vsc Team.Git.Annotate<CR>
+
+" Git Status
+nnoremap <space>gs :vsc View.GitWindow<CR>
 
 
+" Quick Fix
+nnoremap <space>qo :vsc View.ErrorList<CR>
+
+" Quick Fix Prior Error
+nnoremap <space>qn :vsc View.NextError<CR>
+
+" Quick Fix Next Error
+nnoremap <space>qp :vsc View.PreviousError<CR>
