@@ -27,7 +27,7 @@ return {
 
 		},
 		popupmenu = {
-			enabled = false,
+			enabled = true,
 			view = "cmdline"
 		},
 
