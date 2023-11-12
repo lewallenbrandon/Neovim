@@ -2,7 +2,7 @@ local M = {
 	"nvim-telescope/telescope.nvim",
 	event = "BufReadPre",
 	dependencies = {
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 	},
 	opts = function()
@@ -15,7 +15,7 @@ local M = {
 				},
 			},
 			defaults = {
-				file_ignore_patterns = { "node_modules", "^.git" },
+				file_ignore_patterns = { "node_modules", ".git" },
 			},
 
 			extensions = {
@@ -37,9 +37,9 @@ local M = {
 	config = function(_, opts)
 		local telescope = require("telescope")
 		telescope.setup(opts)
-		telescope.load_extension("fzf")
+		--telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
-		telescope.load_extension("notify")
+		--telescope.load_extension("notify")
 	end,
 }
 

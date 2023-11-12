@@ -84,6 +84,7 @@ vim.keymap.set("n", "<leader>bov", ":vnew<CR>", { desc = "Open Buffer [V]" }) --
 vim.keymap.set("n", "<leader>boh", ":new<CR>", { desc = "Open Buffer [H]" }) -- Open buffer horizontally
 
 -- Miscellaneous
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" }) -- Move line down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Up" }) -- Move line up
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move Screen Down" }) -- Move screen down while keeping cursor in middle
@@ -92,8 +93,19 @@ vim.keymap.set("n", "<Esc>", "<Esc>:noh<CR>", { desc = "Clear Search Highlightin
 vim.keymap.set("n", "<leader><leader>", ":", { desc = "Enter Command Mode" }) -- Enter command mode
 vim.keymap.set("n", "<leader><CR>", "@@", { desc = "Repeat Last Macro" }) -- Repeat last macro
 vim.keymap.set("n", "Q", "@", { desc = "Run Macro" })
+
 vim.keymap.set("i", "<C->>", "<C-t>", {desc = "Indent Text"})
 vim.keymap.set("i", "<C-<>", "<C-d>", {desc = "Deindent Text"})
+vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" })             -- Move line down
+vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Up" })               -- Move line up
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Move Screen Down" })                -- Move screen down while keeping cursor in middle
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Move Screen Up" })                  -- Move screen up while keeping cursor in middle
+vim.keymap.set('n', '<Esc>', '<Esc>:noh | NoiceDismiss <CR>', { desc = "Clear Search Highlighting" }) -- Clear search highlighting
+vim.keymap.set('n', '<leader><leader>', ':', { desc = "Enter Command Mode" })         -- Enter command mode
+vim.keymap.set('n', '<leader><CR>', '@@', { desc = "Repeat Last Macro" })             -- Repeat last macro
+
+
+
 
 -- Utility commands
 local function get_os()
@@ -104,6 +116,8 @@ vim.keymap.set("n", "<leader>uq", ":q<CR>", { desc = "Quit" }) -- Quit
 vim.keymap.set("n", "<leader>ut", get_os(), { desc = "Open Terminal" }) -- Open terminal/powershell
 vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" }) -- Save
 vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
+-- clear notifications 
+vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
 
 -- Git Helper Functions
 local function close_git_window()
