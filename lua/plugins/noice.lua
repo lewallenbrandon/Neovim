@@ -22,7 +22,7 @@ return {
 			view = "cmdline"
 		},
 		notify = {
-			enabled = false,
+			enabled = true,
 			view = "cmdline"
 
 		},
