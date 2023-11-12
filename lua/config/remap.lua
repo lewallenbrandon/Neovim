@@ -102,6 +102,8 @@ vim.keymap.set("n", "<leader>uq", ":q<CR>", { desc = "Quit" })                  
 vim.keymap.set("n", "<leader>ut", get_os(), { desc = "Open Terminal" })                -- Open terminal/powershell
 vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" })                         -- Save
 vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
+-- clear notifications 
+vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
 
 -- Git Helper Functions
 local function close_git_window()
