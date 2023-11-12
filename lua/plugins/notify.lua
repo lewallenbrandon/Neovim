@@ -27,4 +27,5 @@ return {
 		end,
 	},
 	-- when noice is not enabled, install notify on VeryLazy
+	enabled = false
 }
