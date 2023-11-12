@@ -86,7 +86,7 @@ vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" })       
 vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Up" })               -- Move line up
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Move Screen Down" })                -- Move screen down while keeping cursor in middle
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Move Screen Up" })                  -- Move screen up while keeping cursor in middle
-vim.keymap.set('n', '<Esc>', '<Esc>:noh<CR>', { desc = "Clear Search Highlighting" }) -- Clear search highlighting
+vim.keymap.set('n', '<Esc>', '<Esc>:noh | NoiceDismiss <CR>', { desc = "Clear Search Highlighting" }) -- Clear search highlighting
 vim.keymap.set('n', '<leader><leader>', ':', { desc = "Enter Command Mode" })         -- Enter command mode
 vim.keymap.set('n', '<leader><CR>', '@@', { desc = "Repeat Last Macro" })             -- Repeat last macro
 
