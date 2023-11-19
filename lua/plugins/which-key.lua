@@ -8,27 +8,6 @@ local M = {
 	opts = { 
 		defaults = {
 			["<leader>"] = {
-				f = {
-					name = "File",
-				},
-				e = {
-					name = "File Explorer",
-				},
-				w = {
-					name = "Window Management",
-					r = {
-						name = "Resize Window",
-					},
-				},
-				t = {
-					name = "Tab Management",
-					g = {
-						name = "Go to Tab Number",
-					},
-				},
-				u = {
-					name = "Utilities",
-				},
 				b = {
 					name = "Buffer Management",
 					o = {
@@ -38,8 +17,11 @@ local M = {
 						name= "Buffer Telescope"
 					}
 				},
-				m = {
-					name = "Marks Management",
+				e = {
+					name = "File Explorer",
+				},
+				f = {
+					name = "File",
 				},
 				g = {
 					name = "Git Management",
@@ -55,6 +37,24 @@ local M = {
 					b = {
 						name = "Git Branch",
 					}
+				},
+				m = {
+					name = "Marks Management",
+				},
+				n = {
+					name = "Navigation",
+					u = {
+						name = "Up",
+					},
+					d = {
+						name = "Down",
+					},
+					c = {
+						name = "Cursor",
+					},
+					m = {
+						name = "Method",
+					},
 				},
 				p = {
 					name = "Programming Utilities",
@@ -73,6 +73,27 @@ local M = {
 				},
 				s = {
 					name = "Session Management",
+				},
+				t = {
+					name = "Tab Management",
+					g = {
+						name = "Go to Tab Number",
+					},
+				},
+				u = {
+					name = "Utilities",
+				},
+				w = {
+					name = "Window Management",
+					r = {
+						name = "Resize Window",
+					},
+				},
+				z = {
+					name = "Fold Management",
+					m = {
+						name = "Fold Mode",
+					},
 				},
 
 				-- Ignore Toplevel movement

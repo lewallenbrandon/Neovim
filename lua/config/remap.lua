@@ -30,6 +30,8 @@ vim.keymap.set("n", "<leader>ndl", "<C-e>", { desc = "Navigate Down One Line" })
 vim.keymap.set("n", "<leader>nct", "H", { desc = "Cursor Top of Screen" })-- Cursor top of screen
 vim.keymap.set("n", "<leader>ncm", "M", { desc = "Cursor Middle of Screen" })-- Cursor middle of screen
 vim.keymap.set("n", "<leader>ncb", "L", { desc = "Cursor Bottom of Screen" })-- Cursor bottom of screen
+vim.keymap.set("n", "<leader>nmn", "]m", {desc = "Next Method"}) -- Next method
+vim.keymap.set("n", "<leader>nmp", "[m", {desc = "Previous Method"}) -- Previous method 
 
 
 -- Window management
