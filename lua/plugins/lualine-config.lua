@@ -30,7 +30,7 @@ local M = {
 			options = {
 
 				icons_enabled = true,
-				theme = "nightfly",
+				theme = "tokyonight",
 				component_separators = "|",
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
@@ -49,9 +49,11 @@ local M = {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { {"filename", color= {fg="#e4e87b"}}, {require("noice").api.statusline.mode.get,
+				lualine_c = { {"filename", color= {fg="#e4e87b"}},
+					--[[{require("noice").api.statusline.mode.get,
 					cond = require("noice").api.statusline.mode.has,
-					color = { fg = "#f7340c" }}, "buffers" },
+					color = { fg = "#f7340c" }},]]--
+				"buffers" },
 				lualine_x = { { get_venv }, "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location", { clock } },

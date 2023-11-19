@@ -27,6 +27,9 @@ vim.keymap.set("n", "<leader>ndh", "<C-d>", { desc = "Navigate Down Half Screen"
 vim.keymap.set("n", "<leader>ndf", "<C-f>", { desc = "Navigate Down Full Screen" }) -- Move screen down full
 vim.keymap.set("n", "<leader>nul", "<C-y>", { desc = "Navigate Up One Line" }) -- Move screen up one line
 vim.keymap.set("n", "<leader>ndl", "<C-e>", { desc = "Navigate Down One Line" })-- Move screen down one line
+vim.keymap.set("n", "<leader>nct", "H", { desc = "Cursor Top of Screen" })-- Cursor top of screen
+vim.keymap.set("n", "<leader>ncm", "M", { desc = "Cursor Middle of Screen" })-- Cursor middle of screen
+vim.keymap.set("n", "<leader>ncb", "L", { desc = "Cursor Bottom of Screen" })-- Cursor bottom of screen
 
 
 -- Window management
@@ -76,6 +79,19 @@ vim.keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", { desc = "Collapse Fo
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" }) -- Indent left
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" }) -- Indent right
 
+
+-- Fold Management
+vim.keymap.set("n", "<space>zo", "za", { desc = "Toggle Fold" }) -- Toggle fold
+vim.keymap.set("n", "<space>zO", "zA", { desc = "Toggle Folds Recursively" }) -- Toggle Folds Recursively
+vim.keymap.set("n", "<space>zn", "zj", { desc = "Next Fold" }) -- Next fold
+vim.keymap.set("n", "<space>zp", "zk", { desc = "Previous Fold" }) -- Previous fold
+vim.keymap.set("n", "<space>zmi", ":set foldmethod=indent<CR>", { desc = "Set Fold Method to Indent" }) -- Set fold method to indent
+vim.keymap.set("n", "<space>zms", ":set foldmethod=syntax<CR>", { desc = "Set Fold Method to Syntax" }) -- Set fold method to syntax
+vim.keymap.set("n", "<space>zmm", ":set foldmethod=manual<CR>", { desc = "Set Fold Method to Manual" }) -- Set fold method to manual
+
+
+
+
 -- Buffer Management
 -- Already have a buffer menu command on bm using telescope
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous Buffer" }) -- Previous buffer
@@ -84,7 +100,6 @@ vim.keymap.set("n", "<leader>bov", ":vnew<CR>", { desc = "Open Buffer [V]" }) --
 vim.keymap.set("n", "<leader>boh", ":new<CR>", { desc = "Open Buffer [H]" }) -- Open buffer horizontally
 
 -- Miscellaneous
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" }) -- Move line down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Up" }) -- Move line up
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move Screen Down" }) -- Move screen down while keeping cursor in middle
@@ -100,7 +115,7 @@ vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" })       
 vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Up" })               -- Move line up
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Move Screen Down" })                -- Move screen down while keeping cursor in middle
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Move Screen Up" })                  -- Move screen up while keeping cursor in middle
-vim.keymap.set('n', '<Esc>', '<Esc>:noh | NoiceDismiss <CR>', { desc = "Clear Search Highlighting" }) -- Clear search highlighting
+vim.keymap.set('n', '<Esc>', '<Esc>:noh <CR>', { desc = "Clear Search Highlighting" }) -- Clear search highlighting
 vim.keymap.set('n', '<leader><leader>', ':', { desc = "Enter Command Mode" })         -- Enter command mode
 vim.keymap.set('n', '<leader><CR>', '@@', { desc = "Repeat Last Macro" })             -- Repeat last macro
 
@@ -116,7 +131,6 @@ vim.keymap.set("n", "<leader>uq", ":q<CR>", { desc = "Quit" }) -- Quit
 vim.keymap.set("n", "<leader>ut", get_os(), { desc = "Open Terminal" }) -- Open terminal/powershell
 vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" }) -- Save
 vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
--- clear notifications 
 vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
 
 -- Git Helper Functions
