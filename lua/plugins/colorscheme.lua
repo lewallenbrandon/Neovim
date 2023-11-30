@@ -57,6 +57,8 @@ local function return_theme(theme)
 			local tokyonight = require("github-theme")
 			tokyonight.setup(opts)
 			tokyonight.load()
+			--local spec = require('github-theme.spec').load('github_dark_dimmed')
+			--print(vim.inspect(spec))
 			vim.cmd('colorscheme github_dark_dimmed')
 	 	end,
 	}
