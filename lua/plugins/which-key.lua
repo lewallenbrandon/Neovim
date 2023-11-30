@@ -17,6 +17,9 @@ local M = {
 						name= "Buffer Telescope"
 					}
 				},
+				c = {
+					name = "Changes"
+				},
 				e = {
 					name = "File Explorer",
 				},
@@ -37,6 +40,9 @@ local M = {
 					b = {
 						name = "Git Branch",
 					}
+				},
+				j = {
+					name = "Jump",
 				},
 				m = {
 					name = "Marks Management",
@@ -79,6 +85,9 @@ local M = {
 					g = {
 						name = "Go to Tab Number",
 					},
+					m = {
+						name = "Move Tab",
+					}
 				},
 				u = {
 					name = "Utilities",
@@ -97,10 +106,6 @@ local M = {
 				},
 
 				-- Ignore Toplevel movement
-				h = "which_key_ignore",
-				j = "which_key_ignore",
-				k = "which_key_ignore",
-				l = "which_key_ignore",
 				["<Tab>"] = "which_key_ignore",
 				["<CR>"] = "which_key_ignore",
 				["<space>"] = "which_key_ignore"

@@ -34,6 +34,23 @@ vim.keymap.set("n", "<leader>nmn", "]m", {desc = "Next Method"}) -- Next method
 vim.keymap.set("n", "<leader>nmp", "[m", {desc = "Previous Method"}) -- Previous method 
 
 
+-- Change Management <Leader>c
+vim.keymap.set("n", "<leader>co", ":changes <CR>", { desc = "Open Changes" }) -- Open changes
+vim.keymap.set("n", "<leader>cn", "g, ", { desc = "Next Change" }) -- Next change
+vim.keymap.set("n", "<leader>cp", "g; ", { desc = "Previous Change" }) -- Previous change
+
+-- Jump Management <Leader>j
+vim.keymap.set("n", "<leader>jp", "<C-o>", { desc = "Jump Previous" }) -- Jump back
+vim.keymap.set("n", "<leader>jn", "<C-i>", { desc = "Jump Next" }) -- Jump forward
+vim.keymap.set("n", "<leader>jo", ":jump <CR>", {desc = "Open Jump List"}) -- Open jump list
+vim.keymap.set("n", "<leader>jt", ":Telescope jumplist <CR>" , {desc = "Jump Telescope"}) -- Jump Telescope
+
+
+--- Terminal Mode Rebindings
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }) -- Exit terminal mode
+
+
+
 -- Window management
 vim.keymap.set("n", "<leader>wv", "<C-w>v <C-w>l", { desc = "Split Window Vertically" }) -- split window vertically
 vim.keymap.set("n", "<leader>wh", "<C-w>s <C-w>j", { desc = "Split Window Horizontally" }) -- Split window horizontally
@@ -45,10 +62,10 @@ vim.keymap.set("n", "<leader>wrm", ":vertical resize +999 <Bar>  resize +999<CR>
 
 vim.keymap.set("n", "<leader>wrs", ":vertical resize -999 <CR> <C-w>w <CR>", { desc = "Minimize Window Size" }) -- Minimize window size
 vim.keymap.set("n", "<leader><Tab>", "<C-w>w", { desc = "Switch to Next Window" }) -- Switch to next window
-vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Move to Left Window" }) -- Move to left window
-vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to Bottom Window" }) -- Move to bottom window
-vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to Top Window" }) -- Move to top window
-vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Move to Right Window" }) -- Move to right window
+vim.keymap.set("n", "<Left>", "<C-w>h", { desc = "Move to Left Window" }) -- Move to left window
+vim.keymap.set("n", "<Down>", "<C-w>j", { desc = "Move to Bottom Window" }) -- Move to bottom window
+vim.keymap.set("n", "<Up>", "<C-w>k", { desc = "Move to Top Window" }) -- Move to top window
+vim.keymap.set("n", "<Right>", "<C-w>l", { desc = "Move to Right Window" }) -- Move to right window
 
 -- Tab Management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "New Tab" }) -- New tab
