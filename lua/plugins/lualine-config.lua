@@ -1,5 +1,9 @@
 local M = {
 	"nvim-lualine/lualine.nvim",
+	dependencies = {        
+		"nvim-tree/nvim-web-devicons",
+		"meuter/lualine-so-fancy.nvim",
+	},
 	event = "VeryLazy",
 	opts = function()
 		local function get_venv()
@@ -53,8 +57,8 @@ local M = {
 					--[[{require("noice").api.statusline.mode.get,
 					cond = require("noice").api.statusline.mode.has,
 					color = { fg = "#f7340c" }},]]--
-				"buffers" },
-				lualine_x = { { get_venv }, "fileformat", "filetype" },
+				 },
+				lualine_x = { "fancy_macro",{ get_venv }, "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location", { clock } },
 			},
@@ -62,7 +66,7 @@ local M = {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = { "filename" },
-				lualine_x = { "location" },
+				lualine_x = {"fancy_macro", "location" },
 				lualine_y = {},
 				lualine_z = {},
 			},
