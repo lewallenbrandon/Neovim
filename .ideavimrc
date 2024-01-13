@@ -1,0 +1,345 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+set multicursor
+set quickscope
+set sneak
+set commentary
+set relativenumber
+set number
+
+set which-key
+set notimeout
+Plug 'tpope/vim-surround'
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+"Custom leader mappings
+let mapleader = " "
+
+
+" Split Window Vertically
+nnoremap <leader>wv <C-w>v <C-w>l
+
+" Split Window Horizontally
+nnoremap <leader>wh <C-w>s <C-w>j
+
+" Close Current Split Window
+nnoremap <leader>wx :close<CR>
+
+" Equalize Window Sizes
+nnoremap <leader>wre <C-w>=
+
+" Switch to Next Window
+nnoremap <leader><Tab> <C-w>w
+
+" Move to Left Window
+nnoremap <leader>h <C-w>h
+
+" Move to Bottom Window
+nnoremap <leader>j <C-w>j
+
+" Move to Top Window
+nnoremap <leader>k <C-w>k
+
+" Move to Right Window
+nnoremap <leader>l <C-w>l
+
+
+
+" New Tab
+nnoremap <leader>to :tabnew<CR>
+
+" Close Tab
+nnoremap <leader>tx :tabclose<CR>
+
+" Next Tab
+nnoremap <leader>tn :tabn<CR>
+
+" Previous Tab
+nnoremap <leader>tp :tabp<CR>
+
+" Save Tab
+nnoremap <leader>ts <Action>(PinActiveEditorTab)
+
+
+" First Tab
+nnoremap <leader>tg1 1gt
+
+" Second Tab
+nnoremap <leader>tg2 2gt
+
+" Third Tab
+nnoremap <leader>tg3 3gt
+
+" Fourth Tab
+nnoremap <leader>tg4 4gt
+
+" Fifth Tab
+nnoremap <leader>tg5 5gt
+
+" Sixth Tab
+nnoremap <leader>tg6 6gt
+
+" Seventh Tab
+nnoremap <leader>tg7 7gt
+
+" Eighth Tab
+nnoremap <leader>tg8 8gt
+
+" Ninth Tab
+nnoremap <leader>tg9 9gt
+
+" Last Tab
+nnoremap <leader>tg0 :tablast<CR>
+
+
+" Explorer mappings
+" Open Project Explorer
+map <leader>eo <Action>(ActivateProjectToolWindow)
+
+
+
+
+
+
+" Indent Left in Visual Mode
+vnoremap < <gv
+
+" Indent Right in Visual Mode
+vnoremap > >gv
+
+" Previous Buffer
+nnoremap <leader>bp :bp<CR>
+
+" Next Buffer
+nnoremap <leader>bn :bn<CR>
+
+" Open Buffer Vertically
+nnoremap <leader>bov :vnew<CR>
+
+" Open Buffer Horizontally
+nnoremap <leader>boh :new<CR>
+
+" Move Line Down in Visual Mode
+vnoremap J :m '>+1<CR>gv=gv
+
+" Move Line Up in Visual Mode
+vnoremap K :m '<-2<CR>gv=gv
+
+" Move Screen Down
+nnoremap <C-d> <C-d>zz
+
+" Move Screen Up
+nnoremap <C-u> <C-u>zz
+
+" Clear Search Highlighting
+nnoremap <Esc> <Esc>:noh<CR>
+
+" Enter Command Mode
+nnoremap <leader><space> :
+
+" Repeat Last Macro
+nnoremap <leader><CR> @@
+
+
+
+
+
+" Programming commands
+
+"Go to Definition
+nnoremap <leader>pgd gd<CR>
+
+"Peek Defn
+" nnoremap <leader>ppd :vsc Edit.PeekDefinition<CR>
+
+"Go to References
+"nnoremap <leader>pgr :vsc Edit.FindAllReferences<CR>
+
+"Go to Declaration
+"nnoremap <leader>pgn :vsc Edit.GoToDeclaration<CR>
+
+"Go to Implementation
+nnoremap <leader>pgi gi<CR>
+
+"Peek Defn
+"nnoremap <leader>pgi gi<CR>
+
+"Hover
+nnoremap <leader>ph <C-k>
+
+
+
+" Programming refactor commands <leader>pr
+
+"Rename variable
+map <leader>prr <Action>(RenameElement)
+
+" Extract variable
+"nnoremap <leader>prv :vsc ReSharper.ReSharper_IntroduceVariable<CR>
+
+
+
+
+" Toggle line comment
+map <leader>pcl <Action>(CommentByLineComment)
+
+" Toggle block comment
+map <leader>pcb <Action>(CommentByBlockComment)
+
+
+
+" Build the Solution
+"nnoremap <leader>pbb :vsc Build.BuildSolution<CR>
+
+" Rebuid the Solution
+"nnoremap <leader>pbr :vsc Build.RebuildSolution<CR>
+
+
+
+
+" Find commands <leader>f
+
+" Find File in Solution Explorer
+map <leader>ff <Action>(SearchEverywhere)
+
+
+
+" Utility commands <leader>u
+
+" Quit
+nnoremap <leader>uq :q<CR>
+
+" Save
+nnoremap <leader>uw :w<CR>
+
+"Options
+map <leader>uo <Action>(Settings)
+
+"Source file
+nnoremap <leader>usf :source ~/.ideavimrc<CR>
+
+" Open terminal
+map <leader>ut <Action>(ActivateTerminalToolWindow)
+" Copy Full Path
+map <leader>up <Action>(CopyAbsolutePath)
+
+
+" Distraction Free mode"
+map <leader>uz <Action>(ToggleDistractionFreeMode)
+
+
+
+
+
+
+" Here are all the Debugging mappings
+
+" Toggle breakpoint
+"nnoremap <leader>dba :vsc Debug.ToggleBreakpoint<CR>
+
+" Go to breakpoints window
+"nnoremap <leader>dgb :vsc Debug.Breakpoints<CR>
+
+" Run to Curscor
+"nnoremap <leader>drc :vsc Debug.StepOver<CR>
+
+" Start Debug
+"nnoremap <leader>drs :vsc Debug.Start<CR>
+
+" Stop Debug
+"nnoremap <leader>drx :vsc Debug.StopDebugging<CR>
+
+" Step over
+"nnoremap <leader>dso :vsc Debug.StepOver<CR>
+
+" Step into
+"nnoremap <leader>dsi :vsc Debug.StepInto<CR>
+
+" Step out
+"nnoremap <leader>dsx :vsc Debug.StepOut<CR>
+
+" Add Watch
+"nnoremap <leader>dwa :vsc Debug.AddWatch<CR>
+
+" Go to watch window
+"nnoremap <leader>dgw :vsc Debug.Watch<CR>
+
+" Go to call stack
+"nnoremap <leader>dgc :vsc Debug.CallStack<CR>
+
+" Go to output
+"nnoremap <leader>dgo :vsc Debug.Output<CR>
+
+" Attach to process
+"nnoremap <leader>dsa :vsc Debug.AttachToProcess<CR>
+
+" Reattach to proc
+"nnoremap <leader>dsr :vsc Debug.ReattachToProcess<CR>
+
+
+" Git Commands
+
+" Git Branches
+"nnoremap <leader>gbl :vsc Team.Git.ManageBranches<CR>
+
+" Git Fetch
+"nnoremap <leader>gf :vsc Team.Git.Fetch<CR>
+
+" Git Pull
+"nnoremap <leader>gp :vsc Team.Git.Pull<CR>
+
+" Git Push
+"nnoremap <leader>grp :vsc Team.Git.Push<CR>
+
+" Git Log
+"nnoremap <leader>gl :vsc Team.Git.ViewHistory<CR>
+
+" Git Browser
+"nnoremap <leader>gob :vsc Team.Git.OpenBrowser<CR>
+
+" Git Blame
+"nnoremap <leader>ghl :vsc Team.Git.Annotate<CR>
+
+" Git Status
+"nnoremap <leader>gs :vsc View.GitWindow<CR>
+
+
+" Quick Fix
+"nnoremap <leader>qo :vsc View.ErrorList<CR>
+
+" Quick Fix Prior Error
+"nnoremap <leader>qn :vsc View.NextError<CR>
+
+" Quick Fix Next Error
+"nnoremap <leader>qp :vsc View.PreviousError<CR>
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+Plug 'unblevable/quick-scope'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
