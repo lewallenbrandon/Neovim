@@ -42,7 +42,7 @@ return {
       optional = true,
       opts = {
         defaults = {
-          ["<leader>d"] = { name = "+debug" },
+          ["<leader>d"] = { name = "+Debug" },
         },
       },
     },
@@ -63,8 +63,7 @@ return {
 
         -- You'll need to check that you have the required things installed
         -- online, please don't ask me how to install them :)
-        ensure_installed = {
-          -- Update this to ensure that you have the debuggers for the langs you want
+        ensure_installed = {"javadbg", "javatest"
         },
       },
     },
@@ -72,7 +71,7 @@ return {
 
   -- stylua: ignore
   keys = {
-    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint with Condition" },
     { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
     { "<F5>", function() require("dap").continue() end, desc = "Continue" },
     { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },

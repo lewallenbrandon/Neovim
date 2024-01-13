@@ -32,6 +32,8 @@ return {
         "cssls",
         "tailwindcss",
         "svelte",
+	"java-debug-adapter",
+	"java-test",
         "lua_ls",
         "graphql",
         "emmet_ls",
