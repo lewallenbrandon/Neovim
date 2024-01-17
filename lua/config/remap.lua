@@ -140,6 +140,48 @@ vim.keymap.set('n', '<leader><CR>', '@@', { desc = "Repeat Last Macro" })       
 
 
 
+-- Focus terminal window
+local function focus_terminal_window()
+	-- Iterate through all buffers
+	for x, name in ipairs(vim.api.nvim_list_wins()) do
+		local buf_handle
+		local buf_name
+		buf_handle = vim.api.nvim_win_get_buf(name)
+		buf_name = vim.api.nvim_buf_get_name(buf_handle)
+		local result = string.find(buf_name, "term:")
+		if buf_name and result then
+			vim.api.nvim_set_current_win(name)
+		end
+	end
+	return
+end
+-- Focus and run last command
+local function run_last_terminal_command()
+	-- Focus the window
+        focus_terminal_window()
+	-- Enter insert mode and then press up arrow then enter
+	local keys = vim.api.nvim_replace_termcodes("i<Up><CR><Esc><C-w><C-p>", true, false, true)
+	vim.api.nvim_feedkeys(keys, "t", {})
+	return
+end
+
+-- Close terminal window
+local function close_terminal_window()
+	-- Iterate through all buffers
+	for x, name in ipairs(vim.api.nvim_list_wins()) do
+		local buf_handle
+		local buf_name
+		buf_handle = vim.api.nvim_win_get_buf(name)
+		buf_name = vim.api.nvim_buf_get_name(buf_handle)
+		local result = string.find(buf_name, "term:")
+		if buf_name and result then
+			vim.api.nvim_win_close(name, true)
+		end
+	end
+	return
+end
+
+
 
 -- Utility commands
 local function get_os()
@@ -147,7 +189,10 @@ local function get_os()
 end
 
 vim.keymap.set("n", "<leader>uq", ":q<CR>", { desc = "Quit" }) -- Quit
-vim.keymap.set("n", "<leader>ut", get_os(), { desc = "Open Terminal" }) -- Open terminal/powershell
+vim.keymap.set("n", "<leader>uto", get_os(), { desc = "Open Terminal" }) -- Open terminal/powershell
+vim.keymap.set("n", "<leader>utf", function() focus_terminal_window() end, { desc = "Focus Terminal" }) -- Focus terminal/powershell
+vim.keymap.set("n", "<leader>utx", function() close_terminal_window() end, { desc = "Close Terminal" }) -- Close terminal/powershell
+vim.keymap.set("n", "<leader>utl", function() run_last_terminal_command() end, { desc = "Run Last Terminal Command" })
 vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" }) -- Save
 vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
 vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
@@ -167,6 +212,9 @@ local function close_git_window()
 	end
 	return
 end
+
+
+
 
 -- I love Shruthi so much!
 
@@ -245,6 +293,9 @@ vim.keymap.set("n", "<leader>bm", builtin.buffers, { desc = "Buffers" }) -- Buff
 vim.keymap.set("n", "<leader>btf", builtin.current_buffer_fuzzy_find, { desc = "Current Buffer Fuzzy Find" })
 
 vim.keymap.set("n", "<leader>mm", builtin.marks, { desc = "Marks" }) -- Marks
+
+
+
 
 -- Utility Commands for finding info or doing more advanced stuff
 vim.keymap.set("n", "<leader>uh", builtin.help_tags, { desc = "Help Tags" }) -- Help Tags
