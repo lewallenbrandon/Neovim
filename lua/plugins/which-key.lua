@@ -21,10 +21,10 @@ local M = {
 					name = "Changes"
 				},
 				e = {
-					name = "File Explorer",
+					name = "Explore",
 				},
 				f = {
-					name = "File",
+					name = "File Tree",
 				},
 				g = {
 					name = "Git Management",
@@ -40,6 +40,9 @@ local M = {
 					b = {
 						name = "Git Branch",
 					}
+				},
+				i = {
+					name = "iTerm/Pwsh",
 				},
 				j = {
 					name = "Jump",

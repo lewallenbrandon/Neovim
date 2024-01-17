@@ -16,6 +16,7 @@ v = Visual
 ]]
 --
 
+local telebuiltin = require("telescope.builtin")
 -- Leader key is space
 vim.g.mapleader = " "
 
@@ -44,10 +45,6 @@ vim.keymap.set("n", "<leader>jp", "<C-o>", { desc = "Jump Previous" }) -- Jump b
 vim.keymap.set("n", "<leader>jn", "<C-i>", { desc = "Jump Next" }) -- Jump forward
 vim.keymap.set("n", "<leader>jo", ":jump <CR>", {desc = "Open Jump List"}) -- Open jump list
 vim.keymap.set("n", "<leader>jt", ":Telescope jumplist <CR>" , {desc = "Jump Telescope"}) -- Jump Telescope
-
-
---- Terminal Mode Rebindings
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }) -- Exit terminal mode
 
 
 
@@ -87,12 +84,12 @@ vim.keymap.set("n", "<leader>tml", ":-tabmove<CR>", {desc = "Move Tab Left"}) --
 vim.keymap.set("n", "<leader>tmr", ":+tabmove<CR>", {desc = "Move Tab Right"}) -- Move tab Right
 
 -- File Explorer
-vim.keymap.set("n", "<leader>eo", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" }) -- Toggle file explorer
-vim.keymap.set("n", "<leader>ex", ":NvimTreeClose<CR>", { desc = "Close File Explorer" }) -- Close file explore
-vim.keymap.set("n", "<leader>er", ":NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" }) -- Refresh file explorer
-vim.keymap.set("n", "<leader>ef", ":NvimTreeFocus<CR>", { desc = "Focus File Explorer" }) -- Focus file explorer
-vim.keymap.set("n", "<leader>es", ":NvimTreeFindFile<CR>", { desc = "Select This File in File Explorer" }) -- Select This File in File Explore
-vim.keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", { desc = "Collapse Folder" }) -- Collapse file explorer
+vim.keymap.set("n", "<leader>fo", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" }) -- Toggle file explorer
+vim.keymap.set("n", "<leader>fx", ":NvimTreeClose<CR>", { desc = "Close File Explorer" }) -- Close file explore
+vim.keymap.set("n", "<leader>fr", ":NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" }) -- Refresh file explorer
+vim.keymap.set("n", "<leader>ff", ":NvimTreeFocus<CR>", { desc = "Focus File Explorer" }) -- Focus file explorer
+vim.keymap.set("n", "<leader>fs", ":NvimTreeFindFile<CR>", { desc = "Select This File in File Explorer" }) -- Select This File in File Explore
+vim.keymap.set("n", "<leader>fc", ":NvimTreeCollapse<CR>", { desc = "Collapse Folder" }) -- Collapse file explorer
 
 -- Visual Mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" }) -- Indent left
@@ -113,21 +110,14 @@ vim.keymap.set("n", "<space>zmm", ":set foldmethod=manual<CR>", { desc = "Set Fo
 
 -- Buffer Management
 -- Already have a buffer menu command on bm using telescope
+vim.keymap.set("n", "<leader>bm", telebuiltin.buffers, { desc = "Buffers" }) -- Buffers
+vim.keymap.set("n", "<leader>btf", telebuiltin.current_buffer_fuzzy_find, { desc = "Current Buffer Fuzzy Find" })
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous Buffer" }) -- Previous buffer
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Next Buffer" }) -- Next buffer
 vim.keymap.set("n", "<leader>bov", ":vnew<CR>", { desc = "Open Buffer [V]" }) -- Open buffer vertically
 vim.keymap.set("n", "<leader>boh", ":new<CR>", { desc = "Open Buffer [H]" }) -- Open buffer horizontally
 
--- Miscellaneous
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" }) -- Move line down
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Up" }) -- Move line up
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move Screen Down" }) -- Move screen down while keeping cursor in middle
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move Screen Up" }) -- Move screen up while keeping cursor in middle
-vim.keymap.set("n", "<Esc>", "<Esc>:noh<CR>", { desc = "Clear Search Highlighting" }) -- Clear search highlighting
-vim.keymap.set("n", "<leader><leader>", ":", { desc = "Enter Command Mode" }) -- Enter command mode
-vim.keymap.set("n", "<leader><CR>", "@@", { desc = "Repeat Last Macro" }) -- Repeat last macro
-vim.keymap.set("n", "Q", "@", { desc = "Run Macro" })
-
+-- Misc.
 vim.keymap.set("i", "<C->>", "<C-t>", {desc = "Indent Text"})
 vim.keymap.set("i", "<C-<>", "<C-d>", {desc = "Deindent Text"})
 vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Down" })             -- Move line down
@@ -139,7 +129,8 @@ vim.keymap.set('n', '<leader><leader>', ':', { desc = "Enter Command Mode" })   
 vim.keymap.set('n', '<leader><CR>', '@@', { desc = "Repeat Last Macro" })             -- Repeat last macro
 
 
-
+-- Terminal Commands
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }) -- Exit terminal mode
 -- Focus terminal window
 local function focus_terminal_window()
 	-- Iterate through all buffers
@@ -181,18 +172,21 @@ local function close_terminal_window()
 	return
 end
 
-
-
--- Utility commands
-local function get_os()
+local function get_os_terminal()
 	return package.config:sub(1, 1) == "/" and ":term<CR>" or ":Pwsh<CR>"
 end
 
-vim.keymap.set("n", "<leader>uq", ":q<CR>", { desc = "Quit" }) -- Quit
-vim.keymap.set("n", "<leader>uto", get_os(), { desc = "Open Terminal" }) -- Open terminal/powershell
-vim.keymap.set("n", "<leader>utf", function() focus_terminal_window() end, { desc = "Focus Terminal" }) -- Focus terminal/powershell
-vim.keymap.set("n", "<leader>utx", function() close_terminal_window() end, { desc = "Close Terminal" }) -- Close terminal/powershell
-vim.keymap.set("n", "<leader>utl", function() run_last_terminal_command() end, { desc = "Run Last Terminal Command" })
+vim.keymap.set("n", "<leader>io", get_os_terminal(), { desc = "Open Terminal" }) -- Open terminal/powershell
+vim.keymap.set("n", "<leader>if", function() focus_terminal_window() end, { desc = "Focus Terminal" }) -- Focus terminal/powershell
+vim.keymap.set("n", "<leader>ix", function() close_terminal_window() end, { desc = "Close Terminal" }) -- Close terminal/powershell
+vim.keymap.set("n", "<leader>il", function() run_last_terminal_command() end, { desc = "Run Last Terminal Command" })
+
+
+-- Utility commands
+vim.keymap.set("n", "<leader>uqo", ":q<CR>", { desc = "Quit Open File (Safe)" }) -- Quit
+vim.keymap.set("n", "<leader>uqf", ":q!<CR>", { desc = "Quit Open File (Force)" }) -- Quit
+vim.keymap.set("n", "<leader>uqa", ":qa!<CR>", { desc = "Quit All Files (Force)" }) -- Quit
+
 vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" }) -- Save
 vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
 vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
@@ -279,31 +273,27 @@ vim.keymap.set("i", "<C-h>", function()
 end, { desc = "Signature help" }) -- Signature help
 
 -- Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" }) -- Find files
-vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Git files" }) -- Git files
-vim.keymap.set("n", "<leader>fs", function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+vim.keymap.set("n", "<leader>ef", telebuiltin.find_files, { desc = "Find files" }) -- Find files
+vim.keymap.set("n", "<leader>eg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
+vim.keymap.set("n", "<leader>es", function()
+	telebuiltin.grep_string({ search = vim.fn.input("Grep > ") })
 end, { desc = "Grep string" }) -- Grep string
-vim.keymap.set("n", "<leader>fv", builtin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
-vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "File Browser" })
-vim.keymap.set("n", "<leader>fn", ":Telescope notify<CR>", { desc = "Notifications" })
-
-vim.keymap.set("n", "<leader>bm", builtin.buffers, { desc = "Buffers" }) -- Buffers
-vim.keymap.set("n", "<leader>btf", builtin.current_buffer_fuzzy_find, { desc = "Current Buffer Fuzzy Find" })
-
-vim.keymap.set("n", "<leader>mm", builtin.marks, { desc = "Marks" }) -- Marks
+vim.keymap.set("n", "<leader>ev", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
+vim.keymap.set("n", "<leader>eb", ":Telescope file_browser<CR>", { desc = "File Browser" })
+vim.keymap.set("n", "<leader>en", ":Telescope notify<CR>", { desc = "Notifications" })
+vim.keymap.set("n", "<leader>eh", telebuiltin.help_tags, { desc = "Help Tags" }) -- Help Tags
+vim.keymap.set("n", "<leader>ec", telebuiltin.command_history, { desc = "Command History" }) -- Commands
+vim.keymap.set("n", "<leader>e/", telebuiltin.search_history, { desc = "Search History" }) -- Search History
 
 
+-- Marks
+vim.keymap.set("n", "<leader>mm", telebuiltin.marks, { desc = "Marks" }) -- Marks
 
 
--- Utility Commands for finding info or doing more advanced stuff
-vim.keymap.set("n", "<leader>uh", builtin.help_tags, { desc = "Help Tags" }) -- Help Tags
-vim.keymap.set("n", "<leader>uc", builtin.command_history, { desc = "Command History" }) -- Commands
-vim.keymap.set("n", "<leader>us", builtin.search_history, { desc = "Search History" }) -- Search History
+
 
 -- Git Management
-vim.keymap.set("n", "<leader>gts", builtin.git_status, { desc = "Git Status" }) -- Git Status
-vim.keymap.set("n", "<leader>gtc", builtin.git_commits, { desc = "Git Commits" }) -- Git Commits
-vim.keymap.set("n", "<leader>gtb", builtin.git_branches, { desc = "Git Branches" }) -- Git Branches
+vim.keymap.set("n", "<leader>gts", telebuiltin.git_status, { desc = "Git Status" }) -- Git Status
+vim.keymap.set("n", "<leader>gtc", telebuiltin.git_commits, { desc = "Git Commits" }) -- Git Commits
+vim.keymap.set("n", "<leader>gtb", telebuiltin.git_branches, { desc = "Git Branches" }) -- Git Branches
 
