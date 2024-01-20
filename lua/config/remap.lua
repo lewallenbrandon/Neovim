@@ -20,6 +20,8 @@ local telebuiltin = require("telescope.builtin")
 -- Leader key is space
 vim.g.mapleader = " "
 
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Navigation <Leader>n 
 vim.keymap.set("n", "<leader>nuh", "<C-u>", { desc = "Navigate Up Half Screen" }) -- Move screen up half
