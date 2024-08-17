@@ -20,11 +20,11 @@ local M = {
 				c = {
 					name = "Changes"
 				},
-				e = {
-					name = "Explore",
+				d = {
+					name = "Directory"
 				},
 				f = {
-					name = "File Tree",
+					name = "Find",
 				},
 				g = {
 					name = "Git Management",
@@ -41,29 +41,11 @@ local M = {
 						name = "Git Branch",
 					}
 				},
-				i = {
-					name = "iTerm/Pwsh",
-				},
 				j = {
 					name = "Jump",
 				},
 				m = {
 					name = "Marks Management",
-				},
-				n = {
-					name = "Navigation",
-					u = {
-						name = "Up",
-					},
-					d = {
-						name = "Down",
-					},
-					c = {
-						name = "Cursor",
-					},
-					m = {
-						name = "Method",
-					},
 				},
 				p = {
 					name = "Programming Utilities",
@@ -81,6 +63,9 @@ local M = {
 					name = "Quick Fix",
 				},
 				s = {
+					name = "Shell",
+				},
+				S = {
 					name = "Session Management",
 				},
 				t = {
