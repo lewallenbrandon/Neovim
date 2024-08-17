@@ -5,103 +5,38 @@ local M = {
 		vim.o.timeout = true
 		vim.o.timeoutlen = 30
 	end,
-	opts = { 
-		defaults = {
-			["<leader>"] = {
-				b = {
-					name = "Buffer Management",
-					o = {
-						name = "Open Buffer",
-					},
-					t = {
-						name= "Buffer Telescope"
-					}
-				},
-				c = {
-					name = "Changes"
-				},
-				d = {
-					name = "Directory"
-				},
-				f = {
-					name = "Find",
-				},
-				g = {
-					name = "Git Management",
-					t = {
-						name = "Git Telescope",
-					},
-					r = {
-						name = "Git Safe",
-					},
-					a = {
-						name = "Git Add",
-					},
-					b = {
-						name = "Git Branch",
-					}
-				},
-				j = {
-					name = "Jump",
-				},
-				m = {
-					name = "Marks Management",
-				},
-				p = {
-					name = "Programming Utilities",
-					g = {
-						name = "Go To...",
-
-					},
-					r = {
-						name = "Refactor",
-					},
-
-
-				},
-				q = {
-					name = "Quick Fix",
-				},
-				s = {
-					name = "Shell",
-				},
-				S = {
-					name = "Session Management",
-				},
-				t = {
-					name = "Tab Management",
-					g = {
-						name = "Go to Tab Number",
-					},
-					m = {
-						name = "Move Tab",
-					}
-				},
-				u = {
-					name = "Utilities",
-				},
-				w = {
-					name = "Window Management",
-					r = {
-						name = "Resize Window",
-					},
-				},
-				z = {
-					name = "Fold Management",
-					m = {
-						name = "Fold Mode",
-					},
-				},
-
-				-- Ignore Toplevel movement
-				["<Tab>"] = "which_key_ignore",
-				["<CR>"] = "which_key_ignore",
-				["<space>"] = "which_key_ignore"
-			},
-		},
-	},	
 	config = function(_,opts)
 		local wk = require("which-key")
+		wk.add({
+			{"<leader>b", group="Buffer"},
+			{"<leader>bo", group="Open"},
+			{"<leader>bt", group="Telescope"},
+			{"<leader>c", group="Changes"},
+			{"<leader>d", group="Directory"},
+			{"<leader>f", group="Find"},
+			{"<leader>g", group="Git"},
+			{"<leader>ga", group="Add"},
+			{"<leader>gb", group="Branch"},
+			{"<leader>gr", group="Safe"},
+			{"<leader>gt", group="Telescope"},
+			{"<leader>j", group="Jump"},
+			{"<leader>m", group="Marks"},
+			{"<leader>p", group="Programming"},
+			{"<leader>pg", group="Go To..."},
+			{"<leader>pr", group="Refactor"},
+			{"<leader>q", group="Quickfix"},
+			{"<leader>qe", group="Edit"},
+			{"<leader>s", group="Shell"},
+			{"<leader>S", group="Session"},
+			{"<leader>t", group="Tab"},
+			{"<leader>tg", group="Go To..."},
+			{"<leader>tm", group="Move"},
+			{"<leader>u", group="Utilities"},
+			{"<leader>w", group="Window"},
+			{"<leader>wr", group="Resize"},
+			{"<leader>z", group="Fold"},
+			{"<leader>zm", group="Mode"},
+		})
 		wk.setup(opts)
 		wk.register(opts.defaults)
 	end,

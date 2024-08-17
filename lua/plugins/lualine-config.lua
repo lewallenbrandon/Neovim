@@ -34,7 +34,7 @@ local M = {
 			options = {
 
 				icons_enabled = true,
-				theme = "auto",
+				theme = "nightfly",
 				component_separators = "|",
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
