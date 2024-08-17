@@ -207,6 +207,9 @@ vim.keymap.set("n", "<leader>gts", telebuiltin.git_status, { desc = "Git Status"
 vim.keymap.set("n", "<leader>gtc", telebuiltin.git_commits, { desc = "Git Commits" }) -- Git Commits
 vim.keymap.set("n", "<leader>gtb", telebuiltin.git_branches, { desc = "Git Branches" }) -- Git Branches
 
+-- Kill
+vim.keymap.set("n", "<leader>ke", ":qa!<Cr>" , { desc = "Editor" }) -- Editor
+
 -- Quickfix Management
 vim.keymap.set("n", "<leader>qo", function() require('replacer').run() end, {desc = "Edit Mode"})
 vim.keymap.set("n", "<leader>qo", ":Trouble<CR>", { desc = "Open Error List" }) -- Open Error List
