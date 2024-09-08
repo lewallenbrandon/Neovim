@@ -68,17 +68,10 @@ vim.keymap.set("n", "<leader>tg0", ":tablast<CR>", { desc = "Last Tab" }) -- Las
 vim.keymap.set("n", "<leader>tml", ":-tabmove<CR>", {desc = "Move Tab Left"}) -- Move tab left
 vim.keymap.set("n", "<leader>tmr", ":+tabmove<CR>", {desc = "Move Tab Right"}) -- Move tab Right
 
--- Direction Management
-vim.keymap.set("n", "<leader>do", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" }) -- Toggle file explorer
-vim.keymap.set("n", "<leader>dx", ":NvimTreeClose<CR>", { desc = "Close File Explorer" }) -- Close file explore
-vim.keymap.set("n", "<leader>dr", ":NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" }) -- Refresh file explorer
-vim.keymap.set("n", "<leader>df", ":NvimTreeFocus<CR>", { desc = "Focus File Explorer" }) -- Focus file explorer
-vim.keymap.set("n", "<leader>ds", ":NvimTreeFindFile<CR>", { desc = "Select This File in File Explorer" }) -- Select This File in File Explore
-vim.keymap.set("n", "<leader>dc", ":NvimTreeCollapse<CR>", { desc = "Collapse Folder" }) -- Collapse file explorer
-
 -- Visual Mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" }) -- Indent left
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" }) -- Indent right
+
 
 -- Fold Management
 vim.keymap.set("n", "<leader>zo", "za", { desc = "Toggle Fold" }) -- Toggle fold
@@ -106,6 +99,8 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Move Screen Down" })          
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Move Screen Up" })                  -- Move screen up while keeping cursor in middle
 vim.keymap.set('n', '<Esc>', '<Esc>:noh <CR>', { desc = "Clear Search Highlighting" }) -- Clear search highlighting
 vim.keymap.set('n', '<leader><leader>', ':', { desc = "Enter Command Mode" })         -- Enter command mode
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
 
 
 -- Terminal Commands
@@ -165,9 +160,6 @@ vim.keymap.set("n", "<leader>sl", function() run_last_terminal_command() end, { 
 vim.keymap.set("n", "<leader>uqo", ":q<CR>", { desc = "Quit Open File (Safe)" }) -- Quit
 vim.keymap.set("n", "<leader>uqf", ":q!<CR>", { desc = "Quit Open File (Force)" }) -- Quit
 vim.keymap.set("n", "<leader>uqa", ":qa!<CR>", { desc = "Quit All Files (Force)" }) -- Quit
-
-vim.keymap.set("n", "<leader>uw", ":w<CR>", { desc = "Save" }) -- Save
-vim.keymap.set("n", "<leader>us", ":w<CR>:source %<CR>", { desc = "Save and Source" }) -- Save and source
 vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
 
 -- Git Helper Functions
@@ -187,31 +179,13 @@ local function close_git_window()
 end
 
 -- Git Management
-vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "Git Status" }) -- Git status
-vim.keymap.set("n", "<leader>gx", function()
-	close_git_window()
-end, { desc = "Close Git Window" })
-vim.keymap.set("n", "<leader>gl", ':Git log --pretty=format:"%H | %cn | %ah | %s %n"<CR>', { desc = "Git Commits" }) -- Git commit history one line
-vim.keymap.set("n", "<leader>gf", ":Git fetch<CR>", { desc = "Git Fetch" }) -- Git fetch
-vim.keymap.set("n", "<leader>gp", ":Git pull<CR>", { desc = "Git Pull" }) -- Git pull
-vim.keymap.set("n", "<leader>gaf", ":Git add % <CR>", { desc = "Git Add This File" }) -- Git add file
-vim.keymap.set("n", "<leader>gau", ":Git add -u<CR>", { desc = "Git Add -u" }) -- Git add update
-vim.keymap.set("n", "<leader>gaa", ":Git add -A<CR>", { desc = "Git Add -A" }) -- Git add all
-vim.keymap.set("n", "<leader>gac", ':Git add -u <Bar> Git commit -m ""<Left>', { desc = "Git Add -u and Commit" }) -- Git add update and commit
-vim.keymap.set("n", "<leader>gc", ':Git commit -m ""<Left>', { desc = "Git Commit" }) -- Git commit
-vim.keymap.set("n", "<leader>gbl", ":Git branch -l<CR>", { desc = "List Branches" }) -- Git branches
-vim.keymap.set("n", "<leader>gbc", ":Git checkout -b ", { desc = "Create Branch" }) -- Create Branch
-vim.keymap.set("n", "<leader>grp", ":Git push<CR>", { desc = "Git Push" }) -- Git push. r added as safety
-vim.keymap.set("n", "<leader>ghl", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Line Blame" }) -- Toggle line blame
-vim.keymap.set("n", "<leader>gts", telebuiltin.git_status, { desc = "Git Status" }) -- Git Status
-vim.keymap.set("n", "<leader>gtc", telebuiltin.git_commits, { desc = "Git Commits" }) -- Git Commits
-vim.keymap.set("n", "<leader>gtb", telebuiltin.git_branches, { desc = "Git Branches" }) -- Git Branches
+vim.keymap.set("n", "<leader>gs", ":LazyGit<CR>", { desc = "Git Status" }) -- Git status
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Line Blame" }) -- Toggle line blame
 
 -- Kill
 vim.keymap.set("n", "<leader>ke", ":qa!<Cr>" , { desc = "Editor" }) -- Editor
 
 -- Quickfix Management
-vim.keymap.set("n", "<leader>qo", function() require('replacer').run() end, {desc = "Edit Mode"})
 vim.keymap.set("n", "<leader>qo", ":Trouble<CR>", { desc = "Open Error List" }) -- Open Error List
 vim.keymap.set("n", "<leader>qx", ":TroubleClose<CR>", { desc = "Close List" }) -- Close List
 vim.keymap.set("n", "<leader>qr", ":TroubleRefresh<CR>", { desc = "Refresh" }) -- Refresh
@@ -260,8 +234,6 @@ vim.keymap.set("n", "<leader>fs", function()
 	telebuiltin.grep_string({ search = vim.fn.input("Grep > ") })
 end, { desc = "Grep string" }) -- Grep string
 vim.keymap.set("n", "<leader>fv", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
-vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "File Browser" })
-vim.keymap.set("n", "<leader>fn", ":Telescope notify<CR>", { desc = "Notifications" })
 vim.keymap.set("n", "<leader>fh", telebuiltin.help_tags, { desc = "Help Tags" }) -- Help Tags
 vim.keymap.set("n", "<leader>fc", telebuiltin.command_history, { desc = "Command History" }) -- Commands
 vim.keymap.set("n", "<leader>f/", telebuiltin.search_history, { desc = "Search History" }) -- Search History

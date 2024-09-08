@@ -18,7 +18,6 @@ local M = {
 			{"<leader>bo", group="Open"},
 			{"<leader>bt", group="Telescope"},
 			{"<leader>c", group="Changes", icon="🔄"},
-			{"<leader>d", group="Directory", icon=""},
 			{"<leader>f", group="Find"},
 			{"<leader>g", group="Git"},
 			{"<leader>ga", group="Add"},
