@@ -5,6 +5,9 @@ local M = {
 		vim.o.timeout = true
 		vim.o.timeoutlen = 30
 	end,
+	opts = {
+		notify = false,
+	},
 	config = function(_,opts)
 		local wk = require("which-key")
 		wk.add({
@@ -14,7 +17,7 @@ local M = {
 			{"<leader>b", group="Buffer"},
 			{"<leader>bo", group="Open"},
 			{"<leader>bt", group="Telescope"},
-			{"<leader>c", group="Changes"},
+			{"<leader>c", group="Changes", icon="🔄"},
 			{"<leader>d", group="Directory", icon=""},
 			{"<leader>f", group="Find"},
 			{"<leader>g", group="Git"},
@@ -23,7 +26,7 @@ local M = {
 			{"<leader>gr", group="Safe"},
 			{"<leader>gt", group="Telescope"},
 			{"<leader>j", group="Jump", icon="󰡘"},
-			{"<leader>k", group="Kill"},
+			{"<leader>k", group="Kill", icon = "💀"},
 			{"<leader>m", group="Marks", icon="󰛓"},
 			{"<leader>p", group="Programming", icon=""},
 			{"<leader>pg", group="Go To..."},
@@ -38,7 +41,7 @@ local M = {
 			{"<leader>u", group="Utilities", icon=""},
 			{"<leader>w", group="Window"},
 			{"<leader>wr", group="Resize"},
-			{"<leader>z", group="Fold"},
+			{"<leader>z", group="Fold", icon="⌇"},
 			{"<leader>zm", group="Mode"},
 		})
 		wk.setup(opts)
