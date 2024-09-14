@@ -15,4 +15,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.showmode = false
 vim.colorscheme = "default"
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 

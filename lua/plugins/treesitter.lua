@@ -20,7 +20,7 @@ local M = {
 		autopairs = { enable = true },
 		autotag = { enable = true },
 		indent = { enable = true },
-		ensure_installed = {"c", "lua", "java", "python", "vim", "vimdoc", "query"},
+		ensure_installed = {"c", "cpp", "lua", "java", "python", "vim", "vimdoc", "query"},
 		sync_install = true,
 		ignore_install = {}, -- List of parsers to ignore installation
 		refactor = {
