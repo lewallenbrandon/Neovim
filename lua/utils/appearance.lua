@@ -72,7 +72,6 @@ M.mason_packages = {
 
 M.lsp_servers = {
     "clangd",
-    "tsserver",
     "pyright",
     "lua_ls",
     "eslint",

@@ -5,7 +5,7 @@ local M = {
     opts = {
         suggestion = { enabled = false },
         panel = { enabled = false },
-        ft_disable = { "markdown", "terraform", "cpp" },
+        ft_disable = { "markdown", "terraform", },
     },
 }
 
