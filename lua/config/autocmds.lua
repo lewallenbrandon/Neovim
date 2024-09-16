@@ -1,5 +1,5 @@
 -- go to last loc when opening a buffer
-local u = require("utils.init")
+local u = require("utils.appearance")
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()

@@ -1,4 +1,4 @@
-require("lua.lazy")
+require("config.lazy")
 require("config.set")
 require("config.command")
 
