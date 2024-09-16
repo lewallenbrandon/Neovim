@@ -190,55 +190,31 @@ vim.keymap.set("n", "<leader>qo", ":Trouble<CR>", { desc = "Open Error List" }) 
 vim.keymap.set("n", "<leader>qx", ":TroubleClose<CR>", { desc = "Close List" }) -- Close List
 vim.keymap.set("n", "<leader>qr", ":TroubleRefresh<CR>", { desc = "Refresh" }) -- Refresh
 vim.keymap.set("n", "<leader>qq", ":TroubleToggle quickfix<CR>", { desc = "Native Quickfix" }) -- Native Quickfix
-vim.keymap.set("n", "<leader>qn", function()
-	vim.diagnostic.goto_next()
-end, { desc = "Next diagnostic" }) -- Next diagnostic
-vim.keymap.set("n", "<leader>qp", function()
-	vim.diagnostic.goto_prev()
-end, { desc = "Previous diagnostic " }) -- Previous diagnostic
+vim.keymap.set("n", "<leader>qn", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" }) -- Next diagnostic
+vim.keymap.set("n", "<leader>qp", function() vim.diagnostic.goto_prev() end, { desc = "Previous diagnostic " }) -- Previous diagnostic
 
 -- Programming Utility
-
-vim.keymap.set("n", "<leader>pgd", function()
-	vim.lsp.buf.definition()
-end, { desc = "Definition" }) -- Go to definition
-vim.keymap.set("n", "<leader>pgr", function()
-	vim.lsp.buf.references()
-end, { desc = "References" }) -- Go to references
-vim.keymap.set("n", "<leader>pgn", function()
-	vim.lsp.buf.declaration()
-end, { desc = "Initalization" })
-vim.keymap.set("n", "<leader>ph", function()
-	vim.lsp.buf.hover()
-end, { desc = "Hover" }) -- Hover
-vim.keymap.set("n", "<leader>prf", function()
-	vim.lsp.buf.format()
-end, { desc = "Format" }) -- FormatFormat
-vim.keymap.set("n", "<leader>prc", function()
-	vim.lsp.buf.code_action()
-end, { desc = "Code Actions" }) -- Format
-vim.keymap.set("n", "<leader>pgi", function()
-	vim.lsp.buf.implementation()
-end, { desc = "Implementation" })
-vim.keymap.set("n", "<leader>prr", function()
-	vim.lsp.buf.rename()
-end, { desc = "Rename" })
-vim.keymap.set("i", "<C-h>", function()
-	vim.lsp.buf.signature_help()
-end, { desc = "Signature help" }) -- Signature help
+vim.keymap.set("n", "<leader>pgr", function() vim.lsp.buf.references() end, { desc = "References" }) -- Go to references
+vim.keymap.set("n", "<leader>pgn", function() vim.lsp.buf.declaration() end, { desc = "Initalization" })
+vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.hover() end, { desc = "Hover" }) -- Hover
+vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" }) -- Signature help
+vim.keymap.set("n", "<leader>prf", function() vim.lsp.buf.format() end, { desc = "Format" }) -- FormatFormat
+vim.keymap.set("n", "<leader>prc", function() vim.lsp.buf.code_action() end, { desc = "Code Actions" }) -- Format
+vim.keymap.set("n", "<leader>pgi", function() vim.lsp.buf.implementation() end, { desc = "Implementation" })
+vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
 
 -- Telescope
 vim.keymap.set("n", "<leader>ff", telebuiltin.find_files, { desc = "Find files" }) -- Find files
 vim.keymap.set("n", "<leader>fg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
-vim.keymap.set("n", "<leader>fs", function()
-	telebuiltin.grep_string({ search = vim.fn.input("Grep > ") })
-end, { desc = "Grep string" }) -- Grep string
+vim.keymap.set("n", "<leader>fs", function() telebuiltin.grep_string({ search = vim.fn.input("Grep > ") }) end, { desc = "Grep string" }) -- Grep string
 vim.keymap.set("n", "<leader>fv", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
 vim.keymap.set("n", "<leader>fh", telebuiltin.help_tags, { desc = "Help Tags" }) -- Help Tags
 vim.keymap.set("n", "<leader>fc", telebuiltin.command_history, { desc = "Command History" }) -- Commands
 vim.keymap.set("n", "<leader>f/", telebuiltin.search_history, { desc = "Search History" }) -- Search History
+vim.keymap.set("n", "<leader>fm", telebuiltin.marks, { desc = "Marks" }) -- Marks
 
 
--- Marks
-vim.keymap.set("n", "<leader>mm", telebuiltin.marks, { desc = "Marks" }) -- Marks
 
+vim.keymap.set("n", "<leader>mr", ":MakeitOpen<CR> run", { desc = "MakeIt Run" }) -- MakeIt
+vim.keymap.set("n", "<leader>mm", ":MakeitOpen<CR> main", { desc = "MakeIt Run" }) -- MakeIt
+vim.keymap.set("n", "<leader>mo", ":MakeitOpen<CR>", { desc = "MakeIt Run" }) -- MakeIt
