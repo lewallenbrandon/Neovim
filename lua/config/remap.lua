@@ -147,6 +147,7 @@ vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc =
 vim.keymap.set("n", "<leader>ff", telebuiltin.find_files, { desc = "Find files" }) -- Find files
 vim.keymap.set("n", "<leader>fg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
 vim.keymap.set("n", "<leader>fs", function() telebuiltin.grep_string({ search = vim.fn.input("Grep > ") }) end, { desc = "Grep string" }) -- Grep string
+vim.keymap.set("n", "<leader>fw", function() telebuiltin.grep_string() end, { desc = "Grep word" }) -- Grep string
 vim.keymap.set("n", "<leader>fv", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
 vim.keymap.set("n", "<leader>fh", telebuiltin.help_tags, { desc = "Help Tags" }) -- Help Tags
 vim.keymap.set("n", "<leader>fc", telebuiltin.command_history, { desc = "Command History" }) -- Commands
