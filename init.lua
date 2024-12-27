@@ -1,5 +1,5 @@
-require("config.set")
 require("config.lazy")
+require("config.set")
 require("config.command")
 
 vim.api.nvim_create_autocmd("User", {

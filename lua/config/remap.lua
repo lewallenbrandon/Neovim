@@ -17,6 +17,7 @@ v = Visual
 --
 
 local telebuiltin = require("telescope.builtin")
+local functions = require("utils.functions")
 -- Leader key is space
 vim.g.mapleader = " "
 
@@ -103,57 +104,12 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 
--- Terminal Commands
--- Focus terminal window
-local function focus_terminal_window()
-	-- Iterate through all buffers
-	for x, name in ipairs(vim.api.nvim_list_wins()) do
-		local buf_handle
-		local buf_name
-		buf_handle = vim.api.nvim_win_get_buf(name)
-		buf_name = vim.api.nvim_buf_get_name(buf_handle)
-		local result = string.find(buf_name, "term:")
-		if buf_name and result then
-			vim.api.nvim_set_current_win(name)
-		end
-	end
-	return
-end
--- Focus and run last command
-local function run_last_terminal_command()
-	-- Focus the window
-        focus_terminal_window()
-	-- Enter insert mode and then press up arrow then enter
-	local keys = vim.api.nvim_replace_termcodes("i<Up><CR><Esc><C-w><C-p>", true, false, true)
-	vim.api.nvim_feedkeys(keys, "t", {})
-	return
-end
-
--- Close terminal window
-local function close_terminal_window()
-	-- Iterate through all buffers
-	for x, name in ipairs(vim.api.nvim_list_wins()) do
-		local buf_handle
-		local buf_name
-		buf_handle = vim.api.nvim_win_get_buf(name)
-		buf_name = vim.api.nvim_buf_get_name(buf_handle)
-		local result = string.find(buf_name, "term:")
-		if buf_name and result then
-			vim.api.nvim_win_close(name, true)
-		end
-	end
-	return
-end
-
-local function get_os_terminal()
-	return package.config:sub(1, 1) == "/" and ":term<CR>" or ":Pwsh<CR>"
-end
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }) -- Exit terminal mode
-vim.keymap.set("n", "<leader>so", get_os_terminal(), { desc = "Open Terminal" }) -- Open terminal/powershell
-vim.keymap.set("n", "<leader>sf", function() focus_terminal_window() end, { desc = "Focus Terminal" }) -- Focus terminal/powershell
-vim.keymap.set("n", "<leader>sx", function() close_terminal_window() end, { desc = "Close Terminal" }) -- Close terminal/powershell
-vim.keymap.set("n", "<leader>sl", function() run_last_terminal_command() end, { desc = "Run Last Terminal Command" })
+vim.keymap.set("n", "<leader>so", functions.get_os_terminal(), { desc = "Open Terminal" }) -- Open terminal/powershell
+vim.keymap.set("n", "<leader>sf", function() functions.focus_terminal_window() end, { desc = "Focus Terminal" }) -- Focus terminal/powershell
+vim.keymap.set("n", "<leader>sx", function() functions.close_terminal_window() end, { desc = "Close Terminal" }) -- Close terminal/powershell
+vim.keymap.set("n", "<leader>sl", function() functions.run_last_terminal_command() end, { desc = "Run Last Terminal Command" })
 
 
 -- Utility commands
@@ -161,22 +117,6 @@ vim.keymap.set("n", "<leader>uqo", ":q<CR>", { desc = "Quit Open File (Safe)" })
 vim.keymap.set("n", "<leader>uqf", ":q!<CR>", { desc = "Quit Open File (Force)" }) -- Quit
 vim.keymap.set("n", "<leader>uqa", ":qa!<CR>", { desc = "Quit All Files (Force)" }) -- Quit
 vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
-
--- Git Helper Functions
-local function close_git_window()
-	-- Iterate through all buffers
-	for x, name in ipairs(vim.api.nvim_list_wins()) do
-		local buf_handle
-		local buf_name
-		buf_handle = vim.api.nvim_win_get_buf(name)
-		buf_name = vim.api.nvim_buf_get_name(buf_handle)
-		local result = string.find(buf_name, "fugitive:")
-		if buf_name and result then
-			vim.api.nvim_win_close(name, true)
-		end
-	end
-	return
-end
 
 -- Git Management
 vim.keymap.set("n", "<leader>gs", ":LazyGit<CR>", { desc = "Git Status" }) -- Git status
@@ -199,7 +139,7 @@ vim.keymap.set("n", "<leader>pgn", function() vim.lsp.buf.declaration() end, { d
 vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.hover() end, { desc = "Hover" }) -- Hover
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" }) -- Signature help
 vim.keymap.set("n", "<leader>prf", function() vim.lsp.buf.format() end, { desc = "Format" }) -- FormatFormat
-vim.keymap.set("n", "<leader>prc", function() vim.lsp.buf.code_action() end, { desc = "Code Actions" }) -- Format
+vim.keymap.set("n", "<leader>pa", function() vim.lsp.buf.code_action() end, { desc = "Code Actions" }) -- Format
 vim.keymap.set("n", "<leader>pgi", function() vim.lsp.buf.implementation() end, { desc = "Implementation" })
 vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
 
@@ -207,6 +147,7 @@ vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc =
 vim.keymap.set("n", "<leader>ff", telebuiltin.find_files, { desc = "Find files" }) -- Find files
 vim.keymap.set("n", "<leader>fg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
 vim.keymap.set("n", "<leader>fs", function() telebuiltin.grep_string({ search = vim.fn.input("Grep > ") }) end, { desc = "Grep string" }) -- Grep string
+vim.keymap.set("n", "<leader>fw", function() telebuiltin.grep_string() end, { desc = "Grep word" }) -- Grep string
 vim.keymap.set("n", "<leader>fv", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
 vim.keymap.set("n", "<leader>fh", telebuiltin.help_tags, { desc = "Help Tags" }) -- Help Tags
 vim.keymap.set("n", "<leader>fc", telebuiltin.command_history, { desc = "Command History" }) -- Commands
