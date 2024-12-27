@@ -139,7 +139,7 @@ vim.keymap.set("n", "<leader>pgn", function() vim.lsp.buf.declaration() end, { d
 vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.hover() end, { desc = "Hover" }) -- Hover
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" }) -- Signature help
 vim.keymap.set("n", "<leader>prf", function() vim.lsp.buf.format() end, { desc = "Format" }) -- FormatFormat
-vim.keymap.set("n", "<leader>prc", function() vim.lsp.buf.code_action() end, { desc = "Code Actions" }) -- Format
+vim.keymap.set("n", "<leader>pa", function() vim.lsp.buf.code_action() end, { desc = "Code Actions" }) -- Format
 vim.keymap.set("n", "<leader>pgi", function() vim.lsp.buf.implementation() end, { desc = "Implementation" })
 vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
 

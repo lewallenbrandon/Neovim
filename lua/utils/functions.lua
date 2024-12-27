@@ -18,7 +18,7 @@ end
 -- Focus and run last command
 function M.run_last_terminal_command()
 	-- Focus the window
-        focus_terminal_window()
+        M.focus_terminal_window()
 	-- Enter insert mode and then press up arrow then enter
 	local keys = vim.api.nvim_replace_termcodes("i<Up><CR><Esc><C-w><C-p>", true, false, true)
 	vim.api.nvim_feedkeys(keys, "t", {})
