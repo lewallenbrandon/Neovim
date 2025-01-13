@@ -25,17 +25,20 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Change Management <Leader>c
+vim.keymap.set("n", "<leader>c", "<nop>", { desc = "Change" }) -- Find files
 vim.keymap.set("n", "<leader>co", ":changes <CR>", { desc = "Open Changes" }) -- Open changes
 vim.keymap.set("n", "<leader>cn", "g, ", { desc = "Next Change" }) -- Next change
 vim.keymap.set("n", "<leader>cp", "g; ", { desc = "Previous Change" }) -- Previous change
 
 -- Jump Management <Leader>j
+vim.keymap.set("n", "<leader>j", "<nop>", { desc = "Jump" }) -- Find files
 vim.keymap.set("n", "<leader>jp", "<C-o>", { desc = "Jump Previous" }) -- Jump back
 vim.keymap.set("n", "<leader>jn", "<C-i>", { desc = "Jump Next" }) -- Jump forward
 vim.keymap.set("n", "<leader>jo", ":jump <CR>", {desc = "Open Jump List"}) -- Open jump list
 vim.keymap.set("n", "<leader>jt", ":Telescope jumplist <CR>" , {desc = "Jump Telescope"}) -- Jump Telescope
 
 -- Window management
+vim.keymap.set("n", "<leader>w", "<nop>", { desc = "Window" }) -- Find files
 vim.keymap.set("n", "<leader>wv", "<C-w>v <C-w>l", { desc = "Split Window Vertically" }) -- split window vertically
 vim.keymap.set("n", "<leader>wh", "<C-w>s <C-w>j", { desc = "Split Window Horizontally" }) -- Split window horizontally
 vim.keymap.set("n", "<leader>wx", ":close<CR>", { desc = "Close Current Split Window" }) -- Close current split window
@@ -51,6 +54,7 @@ vim.keymap.set("n", "<Up>", "<C-w>k", { desc = "Move to Top Window" }) -- Move t
 vim.keymap.set("n", "<Right>", "<C-w>l", { desc = "Move to Right Window" }) -- Move to right window
 
 -- Tab Management
+vim.keymap.set("n", "<leader>t", "<nop>", { desc = "Tab" }) -- Find files
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "New Tab" }) -- New tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close Tab" }) -- Close tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Next Tab" }) -- Next tab
@@ -75,6 +79,7 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" }) -- Indent right
 
 
 -- Fold Management
+vim.keymap.set("n", "<leader>z", "<nop>", { desc = "Fold" }) -- Find files
 vim.keymap.set("n", "<leader>zo", "za", { desc = "Toggle Fold" }) -- Toggle fold
 vim.keymap.set("n", "<leader>zO", "zA", { desc = "Toggle Folds Recursively" }) -- Toggle Folds Recursively
 vim.keymap.set("n", "<leader>zn", "zj", { desc = "Next Fold" }) -- Next fold
@@ -84,6 +89,7 @@ vim.keymap.set("n", "<leader>zms", ":set foldmethod=syntax<CR>", { desc = "Set F
 vim.keymap.set("n", "<leader>zmm", ":set foldmethod=manual<CR>", { desc = "Set Fold Method to Manual" }) -- Set fold method to manual
 
 -- Buffer Management
+vim.keymap.set("n", "<leader>b", "<nop>", { desc = "Buffer" }) -- Find files
 vim.keymap.set("n", "<leader>bm", telebuiltin.buffers, { desc = "Buffers" }) -- Buffers
 vim.keymap.set("n", "<leader>btf", telebuiltin.current_buffer_fuzzy_find, { desc = "Current Buffer Fuzzy Find" })
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous Buffer" }) -- Previous buffer
@@ -104,8 +110,10 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 
-
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }) -- Exit terminal mode
+
+-- Shell
+vim.keymap.set("n", "<leader>s", "<nop>", { desc = "Shell" }) -- Find files
 vim.keymap.set("n", "<leader>so", functions.get_os_terminal(), { desc = "Open Terminal" }) -- Open terminal/powershell
 vim.keymap.set("n", "<leader>sf", function() functions.focus_terminal_window() end, { desc = "Focus Terminal" }) -- Focus terminal/powershell
 vim.keymap.set("n", "<leader>sx", function() functions.close_terminal_window() end, { desc = "Close Terminal" }) -- Close terminal/powershell
@@ -113,19 +121,23 @@ vim.keymap.set("n", "<leader>sl", function() functions.run_last_terminal_command
 
 
 -- Utility commands
+vim.keymap.set("n", "<leader>u", "<nop>", { desc = "Utility" }) -- Find files
 vim.keymap.set("n", "<leader>uqo", ":q<CR>", { desc = "Quit Open File (Safe)" }) -- Quit
 vim.keymap.set("n", "<leader>uqf", ":q!<CR>", { desc = "Quit Open File (Force)" }) -- Quit
 vim.keymap.set("n", "<leader>uqa", ":qa!<CR>", { desc = "Quit All Files (Force)" }) -- Quit
 vim.keymap.set("n", "<leader>un", ":NoiceDismiss <CR>", { desc = "Clear Notifications" })    -- Clear notifications
 
 -- Git Management
+vim.keymap.set("n", "<leader>g", "<nop>", { desc = "Git" }) -- Find files
 vim.keymap.set("n", "<leader>gs", ":LazyGit<CR>", { desc = "Git Status" }) -- Git status
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Line Blame" }) -- Toggle line blame
 
 -- Kill
+vim.keymap.set("n", "<leader>k", "<nop>", { desc = "Kill" }) -- Find files
 vim.keymap.set("n", "<leader>ke", ":qa!<Cr>" , { desc = "Editor" }) -- Editor
 
 -- Quickfix Management
+vim.keymap.set("n", "<leader>q", "<nop>", { desc = "Quickfix" }) -- Find files
 vim.keymap.set("n", "<leader>qo", ":Trouble<CR>", { desc = "Open Error List" }) -- Open Error List
 vim.keymap.set("n", "<leader>qx", ":TroubleClose<CR>", { desc = "Close List" }) -- Close List
 vim.keymap.set("n", "<leader>qr", ":TroubleRefresh<CR>", { desc = "Refresh" }) -- Refresh
@@ -134,6 +146,7 @@ vim.keymap.set("n", "<leader>qn", function() vim.diagnostic.goto_next() end, { d
 vim.keymap.set("n", "<leader>qp", function() vim.diagnostic.goto_prev() end, { desc = "Previous diagnostic " }) -- Previous diagnostic
 
 -- Programming Utility
+vim.keymap.set("n", "<leader>p", "<nop>", { desc = "Programming" }) -- Find files
 vim.keymap.set("n", "<leader>pgr", function() vim.lsp.buf.references() end, { desc = "References" }) -- Go to references
 vim.keymap.set("n", "<leader>pgn", function() vim.lsp.buf.declaration() end, { desc = "Initalization" })
 vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.hover() end, { desc = "Hover" }) -- Hover
@@ -144,6 +157,7 @@ vim.keymap.set("n", "<leader>pgi", function() vim.lsp.buf.implementation() end, 
 vim.keymap.set("n", "<leader>prr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
 
 -- Telescope
+vim.keymap.set("n", "<leader>f", "<nop>", { desc = "Find" }) -- Find files
 vim.keymap.set("n", "<leader>ff", telebuiltin.find_files, { desc = "Find files" }) -- Find files
 vim.keymap.set("n", "<leader>fg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
 vim.keymap.set("n", "<leader>fs", function() telebuiltin.grep_string({ search = vim.fn.input("Grep > ") }) end, { desc = "Grep string" }) -- Grep string
@@ -155,7 +169,3 @@ vim.keymap.set("n", "<leader>f/", telebuiltin.search_history, { desc = "Search H
 vim.keymap.set("n", "<leader>fm", telebuiltin.marks, { desc = "Marks" }) -- Marks
 
 
-
-vim.keymap.set("n", "<leader>mr", ":MakeitOpen<CR> run", { desc = "MakeIt Run" }) -- MakeIt
-vim.keymap.set("n", "<leader>mm", ":MakeitOpen<CR> main", { desc = "MakeIt Run" }) -- MakeIt
-vim.keymap.set("n", "<leader>mo", ":MakeitOpen<CR>", { desc = "MakeIt Run" }) -- MakeIt
