@@ -107,6 +107,7 @@ return
                 -- Installs the debug adapters for you
                 'williamboman/mason.nvim',
                 'jay-babu/mason-nvim-dap.nvim',
+                "mfussenegger/nvim-dap-python",
 
                 -- Add your own debuggers here
                 'leoluz/nvim-dap-go',
@@ -224,20 +225,35 @@ return
                 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
                 dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-                dap.adapters.python = {
-                    type = "executable",
-                    command = "/bin/python",
-                    args = { "-m", "debugpy.adapter" },
-                }
+--                if vim.fn.has("win32") == 1 then
+--                    require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/Scripts/pythonw.exe"))
+--                else
+--                    require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/bin/python"))
+--                end
+--
                 dap.configurations.python = {
                     {
-                        type = "python",
-                        request = "launch",
-                        name = "Launch file",
-                        program = "${file}",
+                        -- The first three options are required by nvim-dap
+                        type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
+                        request = 'launch';
+                        name = "Launch file";
+
+                        -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+                        program = "${file}"; -- This configuration will launch the current file if used.
                         pythonPath = function()
-                            return "/usr/bin/python"
-                        end,
+                            -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+                            -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+                            -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+                            local cwd = vim.fn.getcwd()
+                            if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+                                return cwd .. '/venv/bin/python'
+                            elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
+                                return cwd .. '/.venv/bin/python'
+                            else
+                                return '/opt/homebrew/Caskroom/miniforge/base/bin/python'
+                            end
+                        end;
                     },
                 }
 

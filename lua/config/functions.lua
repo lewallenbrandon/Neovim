@@ -1,3 +1,4 @@
+
 local M = {}
 
 -- Terminal Commands
@@ -43,5 +44,6 @@ end
 function M.get_os_terminal()
 	return package.config:sub(1, 1) == "/" and ":term<CR>" or ":Pwsh<CR>"
 end
+
 
 return M
