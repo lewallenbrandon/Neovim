@@ -1,18 +1,14 @@
 -- Imports
-local telebuiltin = require("telescope.builtin")
+--local telebuiltin = require("telescope.builtin")
 local functions = require("config.functions")
 local km = vim.keymap
 local lsp = vim.lsp
 local cmd = vim.cmd
 
--- Set options
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Buffer Management
 km.set("n", "<leader>b", "<nop>", { desc = "Buffer" }) -- Find files
-km.set("n", "<leader>bm", telebuiltin.buffers, { desc = "Buffers" }) -- Buffers
-km.set("n", "<leader>bf", telebuiltin.current_buffer_fuzzy_find, { desc = "Current Buffer Fuzzy Find" })
+--km.set("n", "<leader>bm", telebuiltin.buffers, { desc = "Buffers" }) -- Buffers
+--km.set("n", "<leader>bf", telebuiltin.current_buffer_fuzzy_find, { desc = "Current Buffer Fuzzy Find" })
 km.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous Buffer" }) -- Previous buffer
 km.set("n", "<leader>bn", ":bn<CR>", { desc = "Next Buffer" }) -- Next buffer
 km.set("n", "<leader>bov", ":vnew<CR>", { desc = "Open Buffer [V]" }) -- Open buffer vertically
@@ -52,7 +48,7 @@ km.set("n", "<leader>ke", ":qa!<Cr>" , { desc = "Editor" }) -- Editor
 
 -- Marks
 km.set("n", "<leader>m", "<nop>", { desc = "Marks" }) -- Find files
-km.set("n", "<leader>mm", telebuiltin.marks, { desc = "Marks" }) -- Marks
+--km.set("n", "<leader>mm", telebuiltin.marks, { desc = "Marks" }) -- Marks
 
 -- Misc.
 km.set("i", "<C->>", "<C-t>", {desc = "Indent Text"})
@@ -91,44 +87,44 @@ km.set("n", "<leader>qn", function() vim.diagnostic.goto_next() end, { desc = "N
 km.set("n", "<leader>qp", function() vim.diagnostic.goto_prev() end, { desc = "Previous diagnostic " }) -- Previous diagnostic
 
 
-local function live_grep_with_selected_type()
-    local handle = io.popen("rg --type-list")
-    local output = handle:read("*a")
-    handle:close()
-
-    -- Parse the output into a table of options
-    local options = {}
-    for line in output:gmatch("[^\r\n]+") do
-        table.insert(options, line)
-    end
-
-    -- Prompt the user to select a file type
-    local selected_type = nil -- Initialize variable to store the selected type
-
-    -- Set default values for optional parameters
-    local prompt = "Select an option:"
-
-    -- Build the list of options for the user
-    local items = {}
-    for i, option in ipairs(options) do
-        table.insert(items, string.format("%d. %s", i, option))
-    end
-
-    -- Display the prompt and options to the user
-    vim.ui.select(items, {
-        prompt = prompt,
-    }, function(choice)
-            if choice then
-                local dot_index = string.find(choice, "%.")
-                local substr = string.sub(choice, dot_index + 2)
-                local colon_index = string.find(substr, ":")
-                local col_substr = string.sub(substr, 1, colon_index - 1)
-                telebuiltin.live_grep({
-                    type_filter = col_substr,
-                })
-            end
-        end)
-end
+--local function live_grep_with_selected_type()
+--    local handle = io.popen("rg --type-list")
+--    local output = handle:read("*a")
+--    handle:close()
+--
+--    -- Parse the output into a table of options
+--    local options = {}
+--    for line in output:gmatch("[^\r\n]+") do
+--        table.insert(options, line)
+--    end
+--
+--    -- Prompt the user to select a file type
+--    local selected_type = nil -- Initialize variable to store the selected type
+--
+--    -- Set default values for optional parameters
+--    local prompt = "Select an option:"
+--
+--    -- Build the list of options for the user
+--    local items = {}
+--    for i, option in ipairs(options) do
+--        table.insert(items, string.format("%d. %s", i, option))
+--    end
+--
+--    -- Display the prompt and options to the user
+--    vim.ui.select(items, {
+--        prompt = prompt,
+--    }, function(choice)
+--            if choice then
+--                local dot_index = string.find(choice, "%.")
+--                local substr = string.sub(choice, dot_index + 2)
+--                local colon_index = string.find(substr, ":")
+--                local col_substr = string.sub(substr, 1, colon_index - 1)
+--                --telebuiltin.live_grep({
+--                    type_filter = col_substr,
+--                })
+--            end
+--        end)
+--end
 
 -- In your init.lua or plugin configuration file
 
@@ -151,13 +147,13 @@ end
 
 -- Ripgrep
 km.set("n", "<leader>r", "<nop>", { desc = "Ripgrep" }) -- Find files
-km.set("n", "<leader>ra", function() toggle_my_flag("regex_grep") end, { desc = "Live Grep (Type Filtered)" }) -- Grep string
-km.set("n", "<leader>rb", function() check_my_flag("regex_grep") end, { desc = "Live Grep (Type Filtered)" }) -- Grep string
-km.set("n", "<leader>rt", function() live_grep_with_selected_type() end, { desc = "Live Grep (Type Filtered)" }) -- Grep string
-km.set("n", "<leader>rl", function() telebuiltin.live_grep() end, { desc = "Live Grep" }) -- Grep string
-km.set("n", "<leader>rs", function() telebuiltin.grep_string({ search = vim.fn.input("String: ") }) end, { desc = "Grep string" })
-km.set("n", "<leader>rw", function() telebuiltin.grep_string() end, { desc = "Grep word" }) -- Grep string
-km.set("n", "<leader>rx", function() telebuiltin.grep_string({ search = vim.fn.input("String: "), use_regex=true}) end, { desc = "Grep Regex" })
+--km.set("n", "<leader>ra", function() toggle_my_flag("regex_grep") end, { desc = "Live Grep (Type Filtered)" }) -- Grep string
+--km.set("n", "<leader>rb", function() check_my_flag("regex_grep") end, { desc = "Live Grep (Type Filtered)" }) -- Grep string
+--km.set("n", "<leader>rt", function() live_grep_with_selected_type() end, { desc = "Live Grep (Type Filtered)" }) -- Grep string
+--km.set("n", "<leader>rl", function() telebuiltin.live_grep() end, { desc = "Live Grep" }) -- Grep string
+--km.set("n", "<leader>rs", function() telebuiltin.grep_string({ search = vim.fn.input("String: ") }) end, { desc = "Grep string" })
+--km.set("n", "<leader>rw", function() telebuiltin.grep_string() end, { desc = "Grep word" }) -- Grep string
+--km.set("n", "<leader>rx", function() telebuiltin.grep_string({ search = vim.fn.input("String: "), use_regex=true}) end, { desc = "Grep Regex" })
 
 -- Shell
 km.set("n", "<leader>s", "<nop>", { desc = "Shell" }) -- Find files
@@ -178,13 +174,14 @@ km.set("n", "<leader>tml", ":-tabmove<CR>", {desc = "Move Tab Left"}) -- Move ta
 km.set("n", "<leader>tmr", ":+tabmove<CR>", {desc = "Move Tab Right"}) -- Move tab Right
 
 -- Telescope
-km.set("n", "<leader>f", "<nop>", { desc = "Find" }) -- Find files
-km.set("n", "<leader>ff", telebuiltin.find_files, { desc = "Find files" }) -- Find files
-km.set("n", "<leader>fg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
-km.set("n", "<leader>fv", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
-km.set("n", "<leader>fc", telebuiltin.command_history, { desc = "Command History" }) -- Commands
-km.set("n", "<leader>f/", telebuiltin.search_history, { desc = "Search History" }) -- Search History
-
+--km.set("n", "<leader>f", "<nop>", { desc = "Find" }) -- Find files
+km.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" }) -- Find files
+--km.set("n", "<leader>ff", telebuiltin.find_files, { desc = "Find files" }) -- Find files
+--km.set("n", "<leader>fg", telebuiltin.git_files, { desc = "Git files" }) -- Git files
+--km.set("n", "<leader>fv", telebuiltin.treesitter, { desc = "Treesitter Variables" }) -- Treesitter
+--km.set("n", "<leader>fc", telebuiltin.command_history, { desc = "Command History" }) -- Commands
+--km.set("n", "<leader>f/", telebuiltin.search_history, { desc = "Search History" }) -- Search History
+--
 -- Undotree commands
 km.set("n", "<leader>u", "<nop>", { desc = "Undo" }) -- Find files
 km.set("n", "<leader>uo", cmd.UndotreeToggle, {desc = "UndotreeToggle"})

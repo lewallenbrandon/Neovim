@@ -1,6 +1,10 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("config.lazy")
 require("config.set")
 require("config.command")
+
 
 local augroup = vim.api.nvim_create_augroup
 local blgroup = augroup('blgroup', {})
