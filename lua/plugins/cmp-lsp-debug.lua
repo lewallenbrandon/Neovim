@@ -24,6 +24,23 @@ return
                             ['<C-Space>'] = cmp.mapping.complete(),
                             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                             ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                            ["<CR>"] = cmp.mapping.confirm({
+                                select = false,
+                            }),
+                            ["<Tab>"] = cmp.mapping(function(fallback)
+                                if cmp.visible() then
+                                    cmp.select_next_item()
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s" }),
+                            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                                if cmp.visible() then
+                                    cmp.select_prev_item()
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s" }),
                         }),
                         snippet = {
                             expand = function(args)
@@ -67,7 +84,7 @@ return
                         callback = function(event)
                             local opts = {buffer = event.buf}
 
-                            vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+                            vim.keymap.set('n', '<C-h>', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
                             vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
                             vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
                             vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
@@ -225,12 +242,12 @@ return
                 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
                 dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
---                if vim.fn.has("win32") == 1 then
---                    require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/Scripts/pythonw.exe"))
---                else
---                    require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/bin/python"))
---                end
---
+                --                if vim.fn.has("win32") == 1 then
+                --                    require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/Scripts/pythonw.exe"))
+                --                else
+                --                    require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/bin/python"))
+                --                end
+                --
                 dap.configurations.python = {
                     {
                         -- The first three options are required by nvim-dap
