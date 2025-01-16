@@ -1,4 +1,6 @@
+
 local M = {}
+
 -- Terminal Commands
 -- Focus terminal window
 function M.focus_terminal_window()
@@ -13,8 +15,8 @@ function M.focus_terminal_window()
 			vim.api.nvim_set_current_win(name)
 		end
 	end
-	return
 end
+
 -- Focus and run last command
 function M.run_last_terminal_command()
 	-- Focus the window
@@ -22,7 +24,6 @@ function M.run_last_terminal_command()
 	-- Enter insert mode and then press up arrow then enter
 	local keys = vim.api.nvim_replace_termcodes("i<Up><CR><Esc><C-w><C-p>", true, false, true)
 	vim.api.nvim_feedkeys(keys, "t", {})
-	return
 end
 
 -- Close terminal window
@@ -38,11 +39,11 @@ function M.close_terminal_window()
 			vim.api.nvim_win_close(name, true)
 		end
 	end
-	return
 end
 
 function M.get_os_terminal()
 	return package.config:sub(1, 1) == "/" and ":term<CR>" or ":Pwsh<CR>"
 end
+
 
 return M
