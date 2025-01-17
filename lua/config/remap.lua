@@ -131,6 +131,9 @@ km.set("n", "<leader>uo", cmd.UndotreeToggle, {desc = "UndotreeToggle"})
 -- Vim Editor
 km.set("n", "<leader>v", "<nop>", { desc = "Vim" })
 km.set("n", "<leader>vd", ":cd %:h<CR>", {desc = "CD Here"})
+km.set("n", "<leader>vh", function() Snacks.notifier.show_history() end, {desc = "History"})
+km.set("n", "<leader>vw", ":w", {desc = "Save"})
+km.set("n", "<leader>vq", ":q", {desc = "Quit"})
 
 -- Visual Mode
 km.set("v", "<", "<gv", { desc = "Indent Left" }) -- Indent left
