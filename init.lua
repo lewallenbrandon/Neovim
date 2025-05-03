@@ -8,6 +8,9 @@ require("config.command")
 
 local augroup = vim.api.nvim_create_augroup
 local blgroup = augroup('blgroup', {})
+local api = vim.api
+local o = vim.o
+local fn = vim.fn
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -46,24 +49,6 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
-
---autocmd('LspAttach', {
---    group = blgroup,
---    callback = function(e)
---        local opts = { buffer = e.buf }
---        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
---        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
---        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
---        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
---        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
---        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
---        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
---        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
---        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
---        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
---    end
---})
-
 -- go to last loc when opening a buffer
 autocmd("BufReadPost", {
 	group = blgroup,
@@ -85,4 +70,39 @@ autocmd("FileType", {
 	end,
 })
 
+autocmd("BufWinEnter", {
+	desc = "auto change local current directory",
+	group = augroup("auto-project-root", {}),
+	callback = function(args)
+		if api.nvim_get_option_value("buftype", { buf = args.buf }) ~= "" then
+			return
+		end
 
+		local root = vim.fs.root(args.buf, function(name, path)
+			local pattern = { ".git", "Cargo.toml", "go.mod" }
+			local multipattern = { "build/compile_commands.json" }
+			local abspath = { fn.stdpath("config") }
+			local parentpath = { "~/.config", "~/prj" }
+
+			return vim.iter(pattern):any(function(filepat)
+				return filepat == name
+			end) or vim.iter(multipattern):any(function(filepats)
+				return vim.uv.fs_stat(vim.fs.joinpath(path, vim.fs.normalize(filepats)))
+			end) or vim.iter(abspath):any(function(dirpath)
+				return vim.fs.normalize(dirpath) == path
+			end) or vim.iter(parentpath):any(function(ppath)
+				return vim.fs.normalize(ppath) == vim.fs.dirname(path)
+			end)
+		end)
+		if root then
+			vim.cmd.lcd(root)
+		end
+	end,
+})
+
+
+autocmd("FileType", {
+	desc = "Automatically Split help Buffers to the right",
+	pattern = "help",
+	command = "wincmd L",
+})

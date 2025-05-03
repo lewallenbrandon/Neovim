@@ -38,6 +38,15 @@ return
                             ['<C-Space>'] = {'show', 'show_documentation', 'hide_documentation'},
                         },
 
+                    completion = {
+                        list = {
+                            selection = {
+                                preselect = function(ctx) return ctx.mode ~= 'cmdline' end,
+                                auto_insert = function(ctx) return ctx.mode ~= 'cmdline' end
+                            }
+                        }
+                    },
+
                     appearance = {
                         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
                         -- Useful for when your theme doesn't support blink.cmp
@@ -282,7 +291,7 @@ return
                 }
                 dap.adapters.lldb = {
                     type = "executable",
-                    command = "/usr/bin/lldb-vscode", -- adjust as needed, must be absolute path
+                    command = "/opt/homebrew/opt/llvm/bin/lldb-dap", -- adjust as needed, must be absolute path
                     name = "lldb",
                 }
 

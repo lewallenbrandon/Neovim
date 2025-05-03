@@ -31,6 +31,7 @@ km.set("n", "<leader>zmi", ":set foldmethod=indent<CR>", { desc = "Set Fold Meth
 km.set("n", "<leader>zms", ":set foldmethod=syntax<CR>", { desc = "Set Fold Method to Syntax" }) -- Set fold method to syntax
 km.set("n", "<leader>zmm", ":set foldmethod=manual<CR>", { desc = "Set Fold Method to Manual" }) -- Set fold method to manual
 
+
 -- Git Management
 km.set("n", "<leader>g", "<nop>", { desc = "Git" })
 km.set("n", "<leader>gs", ":LazyGit<CR>", { desc = "Git Status" }) -- Git status
