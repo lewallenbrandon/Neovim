@@ -21,5 +21,4 @@ return {
         end,
         ft = { "markdown" },
     },
-
 }
