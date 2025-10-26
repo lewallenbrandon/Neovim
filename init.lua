@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 require("config.lazy")
 require("config.set")
 require("config.command")
+require("config.lsp")
 
 
 local augroup = vim.api.nvim_create_augroup
@@ -98,6 +99,17 @@ autocmd("BufWinEnter", {
 			vim.cmd.lcd(root)
 		end
 	end,
+})
+
+autocmd("LspAttach", {
+    callback = function(args)
+
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
+          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
+          vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+    end,
 })
 
 

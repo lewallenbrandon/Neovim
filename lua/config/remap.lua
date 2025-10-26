@@ -66,6 +66,15 @@ km.set('n', 'n', 'nzz')
 km.set('n', 'N', 'Nzz')
 km.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }) -- Exit terminal mode
 
+-- Notes
+km.set("n", "<leader>n", "<nop>", { desc = "Notes" })
+km.set("n", "<leader>nd", "mN", { desc = "Designate Note" })
+km.set("n", "<leader>nf", "mW'N", { desc = "Focus Note" })
+km.set("n", "<leader>nw", "'W", { desc = "Focus Work" })
+km.set("n", "<leader>np", ":TypstPreview<CR>", { desc = "Preview" })
+km.set("n", "<leader>nx", ":TypstPreviewStop<CR>", { desc = "Stop Preview" })
+
+
 -- Oil
 km.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
@@ -87,8 +96,10 @@ km.set("n", "<leader>qo", ":Trouble<CR>", { desc = "Open Error List" }) -- Open 
 km.set("n", "<leader>qx", ":TroubleClose<CR>", { desc = "Close List" }) -- Close List
 km.set("n", "<leader>qr", ":TroubleRefresh<CR>", { desc = "Refresh" }) -- Refresh
 km.set("n", "<leader>qq", ":TroubleToggle quickfix<CR>", { desc = "Native Quickfix" }) -- Native Quickfix
-km.set("n", "<leader>qn", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" }) -- Next diagnostic
-km.set("n", "<leader>qp", function() vim.diagnostic.goto_prev() end, { desc = "Previous diagnostic " }) -- Previous diagnostic
+km.set("n", "<leader>qn", ":Trouble snacks next focus=true follow=true preview=true<CR>", { desc = "Next Diag" }) -- Native Quickfix
+km.set("n", "<leader>qp", ":Trouble snacks prev focus=true follow=true preview=true<CR>", { desc = "Prev Diag" }) -- Native Quickfix
+km.set("n", "<C-j>", ":Trouble snacks next focus=true follow=true preview=true<CR>", { desc = "Next Diag" }) -- Native Quickfix
+km.set("n", "<C-k>", ":Trouble snacks prev focus=true follow=true preview=true<CR>", { desc = "Prev Diag" }) -- Native Quickfix
 
 -- Ripgrep
 km.set("n", "<leader>r", "<nop>", { desc = "Ripgrep" })
@@ -154,3 +165,8 @@ km.set("n", "<Left>", "<C-w>h", { desc = "Move to Left Window" }) -- Move to lef
 km.set("n", "<Down>", "<C-w>j", { desc = "Move to Bottom Window" }) -- Move to bottom window
 km.set("n", "<Up>", "<C-w>k", { desc = "Move to Top Window" }) -- Move to top window
 km.set("n", "<Right>", "<C-w>l", { desc = "Move to Right Window" }) -- Move to right window
+
+-- Yank
+km.set("n", "<leader>w", "<nop>", { desc = "Yank" })
+km.set("n", "<leader>yp", ':let @* = expand("%:p")<CR>', { desc = "Path" })
+km.set("n", "<leader>yn", ':let @* = expand("%")<CR>', { desc = "Name" })

@@ -64,16 +64,12 @@ return {
                     indent = 12,
                 },
             },
-
-
-
-
         },
         indent = { enabled = true },
         input = { enabled = true },
         notifier = { enabled = true },
         quickfile = { enabled = true },
-        picker = {enabled=true},
+        picker = {enabled=true, layout = {preset = "ivy_split"}},
         scroll = { enabled = true },
         scope = {enabled = true},
         statuscolumn = { enabled = true },
