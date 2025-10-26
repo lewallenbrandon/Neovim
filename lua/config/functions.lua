@@ -17,6 +17,11 @@ function M.focus_terminal_window()
 	end
 end
 
+-- Reload module function
+function M.R(name)
+    require("plenary.reload").reload_module(name)
+end
+
 -- Focus and run last command
 function M.run_last_terminal_command()
 	-- Focus the window
