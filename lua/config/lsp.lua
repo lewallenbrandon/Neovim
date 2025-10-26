@@ -1,5 +1,4 @@
-vim.lsp.enable('luals')
+vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')
-vim.lsp.enable('copilot')
-vim.lsp.enable('typst')
+vim.lsp.enable('tinymist')
 
