@@ -4,13 +4,38 @@ return {
     --        vim.cmd.colorscheme "kanagawa"
     --    end,
     --},
+    --{
+    --    "dgox16/oldworld.nvim",
+    --    lazy = false,
+    --    priority = 1000,
+    --    config = function()
+    --        vim.cmd.colorscheme "oldworld"
+    --    end,
+    --},
+    --{
+    --    "mitander/flume.nvim",
+    --    lazy = false,
+    --    priority = 1000,
+    --    opts = {},
+    --    config = function(_, opts)
+    --        require("flume").setup(opts)
+    --        vim.cmd.colorscheme("flume")
+    --    end,
+    --},
     {
-        "dgox16/oldworld.nvim",
-        lazy = false,
+        "miikanissi/modus-themes.nvim",
         priority = 1000,
-        config = function()
-            vim.cmd.colorscheme "oldworld"
-        end,
+        opts = {},
+        config = function(_, opts)
+            require("modus-themes").setup({
+                style = "dark",
+                variants = {
+                    modus_operandi = "default",
+                    modus_vivendi = "tinted"
+                },
+            })
+            vim.cmd.colorscheme("modus_vivendi")
+        end
     },
     --{ "catppuccin/nvim",
     --    name = "catppuccin",

@@ -53,7 +53,7 @@ local M = {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { {"filename", color= {fg="#161617"}},
+				lualine_c = { {"filename", color= {fg="#ff9979"}},
 					--[[{require("noice").api.statusline.mode.get,
 					cond = require("noice").api.statusline.mode.has,
 					color = { fg = "#f7340c" }},]]--

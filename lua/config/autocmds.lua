@@ -9,6 +9,8 @@ local yank_group = augroup('HighlightYank', {})
 -- Terminal
 vim.api.nvim_create_user_command("Pwsh", ":term pwsh<CR>", {})
 
+
+
 autocmd("User", {
     pattern = "VeryLazy",
     callback = function()

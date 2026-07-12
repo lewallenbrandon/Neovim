@@ -96,10 +96,7 @@ km.set("n", "<leader>qo", ":Trouble<CR>", { desc = "Open Error List" }) -- Open 
 km.set("n", "<leader>qx", ":TroubleClose<CR>", { desc = "Close List" }) -- Close List
 km.set("n", "<leader>qr", ":TroubleRefresh<CR>", { desc = "Refresh" }) -- Refresh
 km.set("n", "<leader>qq", ":TroubleToggle quickfix<CR>", { desc = "Native Quickfix" }) -- Native Quickfix
-km.set("n", "<leader>qn", ":Trouble snacks next focus=true follow=true preview=true<CR>", { desc = "Next Diag" }) -- Native Quickfix
-km.set("n", "<leader>qp", ":Trouble snacks prev focus=true follow=true preview=true<CR>", { desc = "Prev Diag" }) -- Native Quickfix
-km.set("n", "<C-j>", ":Trouble snacks next focus=true follow=true preview=true<CR>", { desc = "Next Diag" }) -- Native Quickfix
-km.set("n", "<C-k>", ":Trouble snacks prev focus=true follow=true preview=true<CR>", { desc = "Prev Diag" }) -- Native Quickfix
+
 
 -- Ripgrep
 km.set("n", "<leader>r", "<nop>", { desc = "Ripgrep" })
@@ -161,10 +158,14 @@ km.set("n", "<leader>we", "<C-w>x", {desc= "Exchange with Next Window"}) -- Exch
 km.set("n", "<leader>wre", "<C-w>=", { desc = "Equalize Window Sizes" }) -- Equalize window sizes
 km.set("n", "<leader>wrm", ":vertical resize +999 <Bar>  resize +999<CR>", { desc = "Maximize Window Size" }) -- Maximize window size
 km.set("n", "<leader>wrs", ":vertical resize -999 <CR> <C-w>w <CR>", { desc = "Minimize Window Size" }) -- Minimize window size
-km.set("n", "<Left>", "<C-w>h", { desc = "Move to Left Window" }) -- Move to left window
-km.set("n", "<Down>", "<C-w>j", { desc = "Move to Bottom Window" }) -- Move to bottom window
-km.set("n", "<Up>", "<C-w>k", { desc = "Move to Top Window" }) -- Move to top window
-km.set("n", "<Right>", "<C-w>l", { desc = "Move to Right Window" }) -- Move to right window
+km.set("n", "<S-Left>", "<C-w>h", { desc = "Move to Left Window" }) -- Move to left window
+km.set("n", "<S-Down>", "<C-w>j", { desc = "Move to Bottom Window" }) -- Move to bottom window
+km.set("n", "<S-Up>", "<C-w>k", { desc = "Move to Top Window" }) -- Move to top window
+km.set("n", "<S-Right>", "<C-w>l", { desc = "Move to Right Window" }) -- Move to right window
+km.set("n", "<Left>", "h", { desc = "" }) -- Move to left window
+km.set("n", "<Down>", "j", { desc = "" }) -- Move to bottom window
+km.set("n", "<Up>", "k", { desc = "" }) -- Move to top window
+km.set("n", "<Right>", "l", { desc = "" }) -- Move to right window
 
 -- Yank
 km.set("n", "<leader>w", "<nop>", { desc = "Yank" })
