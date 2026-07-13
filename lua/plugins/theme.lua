@@ -33,6 +33,7 @@ return {
                     modus_operandi = "default",
                     modus_vivendi = "tinted"
                 },
+                line_nr_column_background = false,
             })
             vim.cmd.colorscheme("modus_vivendi")
         end
